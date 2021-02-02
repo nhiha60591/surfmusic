@@ -2,7 +2,7 @@
   <div class="flex items-center h-screen items-center">
     <div class="flex w-full flex-col">
       <Logo />
-      <form action="" method="post" class="w-full lg:w-1/3 mx-auto px-4">
+      <form action="" method="post" class="w-full lg:w-1/3 mx-auto px-4" autocomplete="off">
         <h2 class="text-2xl font-bold text-white mb-2 mt-6 text-center">Login</h2>
         <div class="form-item mt-2 pt-4">
           <input
