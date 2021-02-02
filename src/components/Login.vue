@@ -7,13 +7,13 @@
         <div class="form-item mt-2 pt-4">
           <input
             type="text"
-            class="bg-transparent border border-gray-primary w-full px-4 py-4 rounded"
+            class="bg-transparent border border-gray-primary focus:border-blue-primary w-full px-4 py-4 rounded"
             placeholder="Account" />
         </div>
         <div class="form-item mt-4">
           <input
             type="text"
-            class="bg-transparent border border-gray-primary w-full px-4 py-4 rounded"
+            class="bg-transparent border border-gray-primary focus:border-blue-primary w-full px-4 py-4 rounded"
             placeholder="Password" />
         </div>
         <div class="form-actions flex justify-center pt-4">
