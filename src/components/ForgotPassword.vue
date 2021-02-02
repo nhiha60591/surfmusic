@@ -7,7 +7,7 @@
         <div class="form-item mt-2 pt-4">
           <input
             type="mail"
-            class="bg-transparent border border-gray-primary focus:border-blue-primary w-full px-4 py-4 rounded"
+            class="bg-transparent  text-white border border-gray-primary focus:border-blue-primary w-full px-4 py-4 rounded"
             placeholder="Mail" />
         </div>
         <div class="form-actions flex justify-center pt-4">
