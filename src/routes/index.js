@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import auth from './modules/auth'
 
 Vue.use(Router)
 
@@ -8,14 +9,7 @@ export const constantRoutes = [
     path: '',
     redirect: 'login',
   },
-  {
-    path: '/login',
-    component: () => import('../components/Login'),
-  },
-  {
-    path: '/forgot-password',
-    component: () => import('../components/ForgotPassword'),
-  },
+  ...auth,
 ];
 
 const createRouter = () => new Router({

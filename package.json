@@ -10,7 +10,10 @@
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9.8.6",
+    "axios": "^0.21.1",
+    "camelcase": "^6.2.0",
     "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
     "node-sass": "^5.0.0",
     "postcss": "^7.0.35",
     "sass-loader": "^10.1.1",
