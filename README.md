@@ -30,5 +30,19 @@ yarn lint
 - styles All css code will store at this folder. This project use Tailwind framework.
 - utils All utils function and class will store at this.
 
+### Component rules
+- Component files should be store at components folder
+- The file name should use camel case like: HeaderNavigation, FooterMenu
+
+### Page rules
+- Page files should be store at pages folder
+- The file name should use slug case like: forgot-password, about-us, contact-us
+
+### Stylesheet rules
+- css files should be store at styles folder
+- All css code should write on styles folder do not add css into component files or page files
+- You can create css files inside styles folder and import them on the app.css file
+
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
