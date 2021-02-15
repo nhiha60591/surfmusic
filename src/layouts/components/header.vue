@@ -1,5 +1,4 @@
 <template>
-  <transition name="slide">
   <nav class="bg-gray-800 header" style="background-color: #121212 !important;">
     <div class="mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
@@ -34,7 +33,6 @@
       </div>
     </div>
   </nav>
-  </transition>
 </template>
 
 <script>

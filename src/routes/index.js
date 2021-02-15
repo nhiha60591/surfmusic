@@ -19,6 +19,10 @@ export const constantRoutes = [
         path: 'home',
         component: Home,
       },
+      {
+        path: 'music',
+        component: () => import('../pages/music'),
+      },
     ]
   },
   ...auth,
@@ -26,6 +30,7 @@ export const constantRoutes = [
 
 const createRouter = () => new Router({
   scrollBehavior: () => ({ y: 0 }),
+  mode: 'history',
   routes: constantRoutes,
 });
 

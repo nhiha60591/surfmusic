@@ -4,6 +4,8 @@
 @import "./header.css";
 body {
   background-color: #000;
+  width: 100%;
+  overflow: hidden;
 }
 #app {
   min-height: 100vh;

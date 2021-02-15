@@ -1,5 +1,5 @@
 const state = () => ({
-  isToggleMenu: false,
+  isToggleMenu: undefined,
 })
 
 const getters = {
