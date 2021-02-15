@@ -15,7 +15,7 @@ input:focus {
 }
 [v-cloak] > * { display:none }
 .main-container {
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 .wrap {
   min-width: 100vw;

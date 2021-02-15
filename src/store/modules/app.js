@@ -12,11 +12,17 @@ const mutations = {
   toggleMenu (state) {
     state.isToggleMenu = !state.isToggleMenu
   },
+  changeToggleMenu (state, stage) {
+    state.isToggleMenu = stage
+  },
 }
 
 const actions = {
   toggleMenu ({ commit }) {
     commit('toggleMenu')
+  },
+  changeToggleMenu ({ commit }, stage) {
+    commit('changeToggleMenu', stage)
   },
 }
 
