@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const state = {
   id: null,
   token: null,
@@ -33,6 +35,15 @@ const actions = {
       resolve();
     });
   },
+
+  async postLogin(formData) {
+    try {
+      let { data } = await axios.post('login', formData)
+      return data
+    } catch (e) {
+      return false
+    }
+  }
 };
 
 export default {

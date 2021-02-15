@@ -21,7 +21,10 @@ module.exports = {
       gray: { ...colors.coolGray, 'primary': "#707070" },
       red: colors.red,
       yellow: colors.amber,
-      green: colors.emerald,
+      green: {
+        ...colors.emerald,
+        hovered: "#4DD0E1"
+      },
       blue: {
         ...colors.blue,
         'primary': '#80DEEA'

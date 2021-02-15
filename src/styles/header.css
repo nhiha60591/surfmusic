@@ -1,0 +1,21 @@
+.header-menu {
+  max-width: 90%;
+  background-color: #232323;
+}
+.menu-item {
+  border-left: 4px solid transparent;
+}
+.menu-item:hover, .menu-item:active, .menu-item:focus {
+  background-color: rgba(77, 208, 225, 0.2) !important;
+  border-left: 4px solid #4DD0E1;
+}
+.slide-leave-active,
+.slide-enter-active {
+  transition: 1s;
+}
+.slide-enter {
+  transform: translate(-100%, 0);
+}
+.slide-leave-to {
+  transform: translate(-100%, 0);
+}

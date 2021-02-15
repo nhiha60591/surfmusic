@@ -29,8 +29,32 @@
 
 <script>
 import Logo from '../../components/Logo'
+import { mapActions } from 'vuex'
 
 export default {
   components: { Logo },
+  data() {
+    return {
+      form: {
+
+      }
+    }
+  },
+  methods: {
+    ...mapActions('user', ['postLogin']),
+    async onLogin() {
+      try {
+        await this.postLogin(this.form)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+  }
 }
 </script>
+
+<style>
+  #app {
+    background-image: linear-gradient(#456469, #111111);
+  }
+</style>

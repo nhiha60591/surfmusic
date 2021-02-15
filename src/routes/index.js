@@ -1,13 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import auth from './modules/auth'
+import Layout from '../layouts/app'
+import Home from '../pages/home'
 
 Vue.use(Router)
 
 export const constantRoutes = [
   {
     path: '',
-    redirect: 'login',
+    redirect: 'home',
+  },
+  {
+    path: '/',
+    component: Layout,
+    children: [
+      {
+        path: 'home',
+        component: Home,
+      },
+    ]
   },
   ...auth,
 ];
