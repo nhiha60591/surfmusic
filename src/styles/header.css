@@ -1,7 +1,13 @@
 .header-menu {
-  max-width: 90%;
   background-color: #232323;
+  min-width: 258px;
 }
+@media (max-width: 600px) {
+  .header-menu {
+    min-width: 80vw;
+  }
+}
+
 .menu-item {
   border-left: 4px solid transparent;
 }
@@ -11,11 +17,14 @@
 }
 .slide-leave-active,
 .slide-enter-active {
-  transition: 1s;
+  transition: 0.5s;
 }
 .slide-enter {
   transform: translate(-100%, 0);
 }
 .slide-leave-to {
   transform: translate(-100%, 0);
+}
+.menu-icon {
+  width: 60px;
 }

@@ -11,3 +11,10 @@ body {
 input:focus {
   outline: none;
 }
+[v-cloak] > * { display:none }
+.main-container {
+  overflow-x: auto;
+}
+.wrap {
+  min-width: 100vw;
+}
