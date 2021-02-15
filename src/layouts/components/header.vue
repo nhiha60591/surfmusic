@@ -7,6 +7,7 @@
           <button
             class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-0 focus:ring-white"
             @click.prevent="toggleMenu"
+            v-if="isMobile"
             aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <!-- Icon when menu is closed. -->
@@ -40,11 +41,21 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: "header",
+  data() {
+    return {
+      isMobile: true,
+    }
+  },
   computed: {
     ...mapGetters('app', ['isToggleMenu']),
   },
   methods: {
     ...mapActions('app', ['toggleMenu']),
+  },
+  mounted() {
+    if (window.innerWidth > 600) {
+      this.isMobile = false
+    }
   }
 }
 </script>
