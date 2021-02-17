@@ -25,7 +25,7 @@
       <div class="music-item flex w-full mb-1 justify-between" v-for="n in 6" :key="`music-${n}`">
         <div class="music-item-info flex items-center">
           <div class="player-actions">
-            <a href="" class="play-btn rounded-full flex justify-center items-center">
+            <a href="#" class="play-btn rounded-full flex justify-center items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="11.318" height="14.405" viewBox="0 0 11.318 14.405">
                 <path id="Path_25" data-name="Path 25" d="M8,5V19.4l11.318-7.2Z" transform="translate(-8 -5)" fill="#fff"/>
               </svg>
