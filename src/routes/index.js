@@ -29,6 +29,10 @@ export const constantRoutes = [
         component: () => import('../pages/music'),
       },
       {
+        path: 'upload-my-music',
+        component: () => import('../pages/upload-my-music'),
+      },
+      {
         path: 'playlist',
         component: () => import('../pages/playlist'),
       },

@@ -2,7 +2,7 @@
   <div class="main-container flex">
     <Sidebar></Sidebar>
     <div class="wrap" :class="{'md:w-4/6 sm:w-2/6': isToggleMenu, 'w-full': !isToggleMenu}">
-      <MainHeader></MainHeader>
+      <MainHeader v-if="isShowHeader"></MainHeader>
       <router-view :key="$route.fullPath"></router-view>
     </div>
   </div>
@@ -16,7 +16,7 @@ import {mapGetters, mapActions} from "vuex";
 export default {
   components: { MainHeader, Sidebar },
   computed: {
-    ...mapGetters('app', ['isToggleMenu']),
+    ...mapGetters('app', ['isToggleMenu', 'isShowHeader']),
   },
   methods: {
     ...mapActions('app', ['toggleMenu'])

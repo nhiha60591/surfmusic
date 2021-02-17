@@ -1,10 +1,14 @@
 const state = () => ({
   isToggleMenu: undefined,
+  showHeader: true,
 })
 
 const getters = {
   isToggleMenu: (state) => {
     return state.isToggleMenu
+  },
+  isShowHeader: (state) => {
+    return state.showHeader
   }
 }
 
@@ -15,6 +19,9 @@ const mutations = {
   changeToggleMenu (state, stage) {
     state.isToggleMenu = stage
   },
+  setShowHeader(state, show) {
+    state.showHeader = show
+  }
 }
 
 const actions = {
@@ -24,6 +31,9 @@ const actions = {
   changeToggleMenu ({ commit }, stage) {
     commit('changeToggleMenu', stage)
   },
+  setShowHeader({ commit }, show) {
+    commit('setShowHeader', show)
+  }
 }
 
 export default {
