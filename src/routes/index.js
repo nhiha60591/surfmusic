@@ -21,6 +21,10 @@ export const constantRoutes = [
         component: Home,
       },
       {
+        path: '404',
+        component: () => import('../pages/404'),
+      },
+      {
         path: 'music',
         component: () => import('../pages/music'),
       },
@@ -31,6 +35,10 @@ export const constantRoutes = [
     ]
   },
   ...auth,
+  {
+    path: '*',
+    redirect: '/404',
+  }
 ];
 
 const createRouter = () => new Router({
@@ -41,9 +49,22 @@ const createRouter = () => new Router({
 
 const router = createRouter();
 
+const whiteList = ['/login', '/forgot-password']
+
+router.beforeEach(async(to, from, next) => {
+  if (!store.getters['user/isAuthenticated']) {
+    if (whiteList.indexOf(to.path) !== -1) {
+      next();
+    } else {
+      next(`/login?redirect=${to.path}`);
+    }
+  }
+  next();
+})
 router.afterEach(() => {
   if (window.innerWidth <= 600 && store.getters['app/isToggleMenu']) {
     store.dispatch('app/toggleMenu')
   }
 })
+
 export default router;

@@ -31,6 +31,7 @@ export default {
 
 <style>
 #app {
-  background-image: linear-gradient(#456469, #111111);
+  background: url('../../assets/auth-bg.png') no-repeat top center;
+  background-size: cover;
 }
 </style>

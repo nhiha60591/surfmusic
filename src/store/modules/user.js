@@ -1,12 +1,16 @@
-import axios from 'axios'
-
 const state = {
   id: null,
-  token: null,
+  token: undefined,
   name: '',
   avatar: '',
   is_admin: false,
 };
+
+const getters = {
+  isAuthenticated: (state) => {
+    return typeof state.token !== "undefined" && state.token
+  }
+}
 
 const mutations = {
   SET_ID: (state, id) => {
@@ -30,25 +34,24 @@ const actions = {
   // remove token
   resetToken({ commit }) {
     return new Promise(resolve => {
-      commit('SET_TOKEN', '');
+      commit('SET_TOKEN', undefined);
       commit('SET_ROLES', []);
       resolve();
     });
   },
 
-  async postLogin(formData) {
-    try {
-      let { data } = await axios.post('login', formData)
-      return data
-    } catch (e) {
-      return false
-    }
-  }
+  setToken({ commit }, token) {
+    return new Promise(resolve => {
+      commit('SET_TOKEN', token);
+      resolve();
+    });
+  },
 };
 
 export default {
   namespaced: true,
   state,
+  getters,
   mutations,
   actions,
 };
