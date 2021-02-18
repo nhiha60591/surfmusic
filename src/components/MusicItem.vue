@@ -26,12 +26,6 @@
 <script>
 export default {
   props: {
-    class: {
-      type: String,
-      default() {
-        return ''
-      }
-    },
     music: {
       type: Object,
       default() {
