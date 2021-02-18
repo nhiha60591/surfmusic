@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center h-screen items-center">
+  <div class="auth-page flex items-center h-screen items-center">
     <div class="flex w-full flex-col">
       <Logo />
       <form action="" method="post" class="w-full lg:w-1/3 mx-auto px-4" autocomplete="off">
@@ -30,8 +30,5 @@ export default {
 </script>
 
 <style>
-#app {
-  background: url('../../assets/auth-bg.png') no-repeat top center;
-  background-size: cover;
-}
+
 </style>

@@ -20,3 +20,12 @@ input:focus {
 .wrap {
   min-width: 100vw;
 }
+@media (min-width: 960px) {
+  .wrap {
+    min-width: calc(100vw - 258px);
+  }
+}
+.auth-page {
+  background: url('../assets/auth-bg.png') no-repeat top center;
+  background-size: cover;
+}
