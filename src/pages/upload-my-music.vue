@@ -26,7 +26,7 @@
       <h4 class="font-bold my-4">Instulmental</h4>
       <label class="ml-2 mr-8">
         Yes
-        <input type="radio" name="instulmental">
+        <input type="radio" checked name="instulmental">
         <span class="checkmark"></span>
       </label>
       <label>
@@ -45,7 +45,7 @@
       <h4 class="font-bold my-4">Co-writing Program</h4>
       <label class="ml-2 mr-8">
         Yes
-        <input type="radio" name="coWriting">
+        <input type="radio" checked name="coWriting">
         <span class="checkmark"></span>
       </label>
       <label>
@@ -64,7 +64,7 @@
       <h4 class="font-bold my-4">Currency</h4>
       <label class="ml-2 mr-8">
         JPY
-        <input type="radio" name="currency">
+        <input type="radio" checked name="currency">
         <span class="checkmark"></span>
       </label>
       <label>

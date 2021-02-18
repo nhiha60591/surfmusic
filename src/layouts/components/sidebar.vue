@@ -2,11 +2,14 @@
   <transition name="slide">
     <div class="min-h-screen header-menu" :class="{'show-sidebar': isToggleMenu}">
       <div class="pt-2 pb-3 space-y-1">
-        <div class="text-white flex flex-row w-full px-3 py-4 text-base font-medium">
-          <span class="pl-2 mr-4">
+        <div class="flex text-white p-5 items-center">
+          <div class="avatar">
+            <img class="inline-block h-14 w-14 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+          </div>
+          <div class="user-info pl-4">
+            <div class="menu-text font-bold mb-2">User Name</div>
             <strong class="border rounded-full px-4 py-1 text-sm uppercase">Stuff</strong>
-          </span>
-          <span class="menu-text font-bold">User Name</span>
+          </div>
         </div>
         <router-link to="/" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/home-white.svg"></span>

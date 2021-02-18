@@ -18,7 +18,7 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 const store = new Vuex.Store({
   modules,
   getters,
-  plugins: [new VuexPersistence().plugin]
+  plugins: [new VuexPersistence({modules: ['user']}).plugin]
 })
 
 export default store
