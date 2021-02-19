@@ -100,16 +100,18 @@ import { mapActions } from 'vuex'
 export default {
   name: "upload-my-music",
   methods: {
-    ...mapActions('app', ['setShowHeader']),
+    ...mapActions('app', ['setShowHeader', 'setShowFlatButton']),
     openFile() {
       this.$refs.file.click()
     },
   },
   created() {
     this.setShowHeader(false)
+    this.setShowFlatButton(false)
   },
   beforeDestroy() {
     this.setShowHeader(true)
+    this.setShowFlatButton(true)
   }
 }
 </script>

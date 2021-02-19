@@ -44,11 +44,11 @@ export default {
     ...mapActions('app', ['toggleMenu']),
   },
   mounted() {
-    if (window.innerWidth > 600) {
+    if (window.innerWidth > 960) {
       this.isMobile = false
     }
     window.addEventListener('resize', (event) => {
-      if (event.currentTarget.innerWidth > 600) {
+      if (event.currentTarget.innerWidth > 960) {
         this.isMobile = false
         if (!this.isToggleMenu) {
           this.toggleMenu()

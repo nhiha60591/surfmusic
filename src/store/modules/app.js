@@ -1,6 +1,7 @@
 const state = () => ({
   isToggleMenu: undefined,
   showHeader: true,
+  showFlatButton: true,
 })
 
 const getters = {
@@ -9,6 +10,9 @@ const getters = {
   },
   isShowHeader: (state) => {
     return state.showHeader
+  },
+  isShowFlatButton: (state) => {
+    return state.showFlatButton
   }
 }
 
@@ -21,6 +25,9 @@ const mutations = {
   },
   setShowHeader(state, show) {
     state.showHeader = show
+  },
+  setShowFlatButton(state, show) {
+    state.showFlatButton = show
   }
 }
 
@@ -33,6 +40,9 @@ const actions = {
   },
   setShowHeader({ commit }, show) {
     commit('setShowHeader', show)
+  },
+  setShowFlatButton({ commit }, show) {
+    commit('setShowFlatButton', show)
   }
 }
 
