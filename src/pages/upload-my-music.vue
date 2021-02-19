@@ -8,7 +8,7 @@
       <img src="../assets/icons/audiotrack-white.svg" class="p-5 bg-gray-600 block rounded-full" width="100" alt="Audio Track" />
     </div>
     <input type="file" name="file" ref="file" id="file" style="opacity: 0;">
-    <button class="block w-full text-center rounded-sm border-2 font-bold border-blue-primary text-blue-primary uppercase py-4 mb-4" @click.prevent="openFile">Upload music file</button>
+    <button class="block focus:outline-none w-full text-center rounded-sm border-2 font-bold border-blue-primary text-blue-primary uppercase py-4 mb-4" @click.prevent="openFile">Upload music file</button>
     <div class="my-1">
       <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Music Name" />
     </div>
@@ -85,10 +85,10 @@
     </div>
     <div class="mt-8 flex">
       <div class="w-1/2 pr-1">
-        <button class="border-2 border-blue-primary rounded block text-center py-4 w-full uppercase text-blue-primary font-bold">Cancel</button>
+        <button @click.prevent="onCancel" class="border-2 focus:outline-none border-blue-primary rounded block text-center py-4 w-full uppercase text-blue-primary font-bold">Cancel</button>
       </div>
       <div class="w-1/2 pl-1">
-        <button class="border-2 bg-blue-primary border-blue-primary rounded block text-center py-4 w-full uppercase text-black font-bold">OK</button>
+        <button @click.prevent="onOK" class="border-2 focus:outline-none bg-blue-primary border-blue-primary rounded block text-center py-4 w-full uppercase text-black font-bold">OK</button>
       </div>
     </div>
   </div>
@@ -104,6 +104,12 @@ export default {
     openFile() {
       this.$refs.file.click()
     },
+    onOK() {
+      this.$router.push('/')
+    },
+    onCancel() {
+      this.$router.push('/')
+    }
   },
   created() {
     this.setShowHeader(false)
@@ -118,6 +124,7 @@ export default {
 
 <style lang="scss" scoped>
   .input-bg {
+    outline: none;
     background-color: rgba(255, 255, 255, 0.12);
     &::placeholder {
       color: rgba(255, 255, 255, 0.6);

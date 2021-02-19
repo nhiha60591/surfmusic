@@ -1,7 +1,7 @@
 <template>
-  <div class="main-container flex">
+  <div class="main-container flex" :class="{'is-toggle-sidebar': isToggleMenu}">
     <Sidebar></Sidebar>
-    <div class="wrap" :class="{'md:w-4/6 sm:w-2/6': isToggleMenu, 'w-full': !isToggleMenu}">
+    <div class="wrap">
       <MainHeader v-if="isShowHeader"></MainHeader>
       <router-view :key="$route.fullPath"></router-view>
     </div>
@@ -24,7 +24,7 @@ export default {
     ...mapActions('app', ['toggleMenu'])
   },
   mounted() {
-    if (window.innerWidth > 960 && typeof this.isToggleMenu === 'undefined') {
+    if (window.innerWidth > 600 && typeof this.isToggleMenu === 'undefined') {
       this.toggleMenu()
     }
   }

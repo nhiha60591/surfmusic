@@ -1,6 +1,6 @@
 <template>
   <div class="home relative">
-    <div class="flex flex-row justify-between px-2 py-4">
+    <div class="flex flex-row justify-between px-4 py-4">
       <h1 class="text-2xl text-white font-bold">My Playlist</h1>
       <div class="actions flex">
         <a href="#">
@@ -13,8 +13,8 @@
         </a>
       </div>
     </div>
-    <div class="playlist-items">
-      <PlaylistItem v-for="n in 2" :key="`playlist-item-${n}`"></PlaylistItem>
+    <div class="playlist-items flex w-full flex-wrap px-2">
+      <PlaylistItem v-for="n in 8" :key="`playlist-item-${n}`"></PlaylistItem>
     </div>
   </div>
 </template>

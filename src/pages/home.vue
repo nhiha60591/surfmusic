@@ -1,6 +1,6 @@
 <template>
   <div class="home relative">
-    <div class="flex flex-row justify-between px-2 py-4">
+    <div class="flex flex-row justify-between p-4">
       <h1 class="text-2xl text-white font-bold">My Musics</h1>
       <div class="actions flex">
         <a href="#">

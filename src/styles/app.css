@@ -20,9 +20,12 @@ input:focus {
 .wrap {
   min-width: 100vw;
 }
-@media (min-width: 960px) {
-  .wrap {
-    min-width: calc(100vw - 258px);
+.is-toggle-sidebar .wrap {
+  min-width: calc(100vw - 258px);
+}
+@media (max-width: 600px) {
+  .is-toggle-sidebar .wrap {
+    min-width: 100vw;
   }
 }
 .auth-page {

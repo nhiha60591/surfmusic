@@ -1,10 +1,21 @@
 <template>
-  <div class="music-item flex w-full justify-between">
+  <div class="music-item flex w-full justify-between" :class="{'is-playing': music.isPlaying}">
     <div class="music-item-info flex items-center">
+      <div class="w-3">
+        <svg v-if="!music.isPlayed" xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6">
+          <circle id="Ellipse_61" data-name="Ellipse 61" cx="3" cy="3" r="3" fill="#80deea"/>
+        </svg>
+      </div>
       <div class="player-actions">
-        <a href="#" class="play-btn rounded-full flex justify-center items-center">
+        <a v-if="!music.isPlaying" href="#" class="play-btn rounded-full flex justify-center items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="11.318" height="14.405" viewBox="0 0 11.318 14.405">
             <path id="Path_25" data-name="Path 25" d="M8,5V19.4l11.318-7.2Z" transform="translate(-8 -5)" fill="#fff"/>
+          </svg>
+        </a>
+        <a v-else href="#" class="pause-btn rounded-full flex justify-center items-center">
+          <svg id="pause-white-18dp" xmlns="http://www.w3.org/2000/svg" width="28.8" height="28.8" viewBox="0 0 28.8 28.8">
+            <path id="Path_74" data-name="Path 74" d="M0,0H28.8V28.8H0Z" fill="none"/>
+            <path id="Path_75" data-name="Path 75" d="M6,21.8h4.8V5H6ZM15.6,5V21.8h4.8V5Z" transform="translate(1.2 1)" fill="#80deea"/>
           </svg>
         </a>
       </div>
@@ -32,6 +43,8 @@ export default {
         return {
           title: 'My Music Name',
           artist: 'Artist Name',
+          isPlaying: false,
+          isPlayed: true,
         }
       }
     }
@@ -44,12 +57,20 @@ export default {
     background: rgba(255, 255, 255, 0.1);
     padding: 0.5rem;
     border: 1px solid rgba(112, 112, 112, 0.06);
+    &.is-playing {
+      background: rgba(77, 208, 225, 0.2);
+    }
   }
   .play-btn {
     background: rgba(255, 255, 255, 0.2);
     width: 32px;
     height: 32px;
     padding-left: 5px;
+  }
+  .pause-btn {
+    background: rgba(255, 255, 255, 0.2);
+    width: 32px;
+    height: 32px;
   }
   .music-name {
     font-size: 18px;
