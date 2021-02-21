@@ -38,6 +38,7 @@
 
 <script>
 import MusicItem from '../components/MusicItem'
+import {mapActions} from 'vuex'
 
 export default {
   components: { MusicItem },
@@ -74,6 +75,15 @@ export default {
         },
       ]
     }
+  },
+  methods: {
+    ...mapActions('app', ['setFlatButtonUrl'])
+  },
+  created() {
+    this.setFlatButtonUrl('/create-playlist')
+  },
+  beforeDestroy() {
+    this.setFlatButtonUrl('/upload-my-music')
   }
 }
 </script>

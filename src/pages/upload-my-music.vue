@@ -105,7 +105,7 @@ export default {
       this.$refs.file.click()
     },
     onOK() {
-      this.$router.push('/')
+      this.$router.push('/confirm-form')
     },
     onCancel() {
       this.$router.push('/')

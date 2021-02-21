@@ -21,9 +21,19 @@
 
 <script>
 import PlaylistItem from '../components/PlaylistItem'
+import {mapActions} from 'vuex'
 
 export default {
   components: { PlaylistItem },
+  methods: {
+    ...mapActions('app', ['setFlatButtonUrl'])
+  },
+  created() {
+    this.setFlatButtonUrl('/create-playlist')
+  },
+  beforeDestroy() {
+    this.setFlatButtonUrl('/upload-my-music')
+  }
 }
 </script>
 

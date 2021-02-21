@@ -33,6 +33,14 @@ export const constantRoutes = [
         component: () => import('../pages/upload-my-music'),
       },
       {
+        path: 'confirm-form',
+        component: () => import('../pages/confirm-form'),
+      },
+      {
+        path: 'create-playlist',
+        component: () => import('../pages/create-playlist'),
+      },
+      {
         path: 'playlist',
         component: () => import('../pages/playlist'),
       },
