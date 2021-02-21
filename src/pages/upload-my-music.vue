@@ -9,22 +9,22 @@
     </div>
     <input type="file" name="file" ref="file" id="file" style="opacity: 0;">
     <button class="block focus:outline-none w-full text-center rounded-sm border-2 font-bold border-blue-primary text-blue-primary uppercase py-4 mb-4" @click.prevent="openFile">Upload music file</button>
-    <div class="my-1">
+    <div class="my-3">
       <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Music Name" />
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <select class="input-bg p-4 w-full rounded rounded-b-none text-white">
         <option>Tempo</option>
       </select>
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <select class="input-bg p-4 w-full rounded rounded-b-none text-white">
         <option>Genre</option>
       </select>
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <h4 class="font-bold my-4">Instulmental</h4>
-      <label class="ml-2 mr-8">
+      <label class="ml-6 mr-8">
         Yes
         <input type="radio" checked name="instulmental">
         <span class="checkmark"></span>
@@ -35,15 +35,15 @@
         <span class="checkmark"></span>
       </label>
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Co-Producer" />
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Manager" />
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <h4 class="font-bold my-4">Co-writing Program</h4>
-      <label class="ml-2 mr-8">
+      <label class="ml-6 mr-8">
         Yes
         <input type="radio" checked name="coWriting">
         <span class="checkmark"></span>
@@ -54,15 +54,15 @@
         <span class="checkmark"></span>
       </label>
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Publisher" />
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <textarea type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Comment"></textarea>
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <h4 class="font-bold my-4">Currency</h4>
-      <label class="ml-2 mr-8">
+      <label class="ml-6 mr-8">
         JPY
         <input type="radio" checked name="currency">
         <span class="checkmark"></span>
@@ -73,10 +73,10 @@
         <span class="checkmark"></span>
       </label>
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Royalty price" />
     </div>
-    <div class="my-1">
+    <div class="my-3">
       <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Sellout price" />
     </div>
     <div class="my-4 flex justify-between">
