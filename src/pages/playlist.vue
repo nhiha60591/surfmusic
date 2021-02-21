@@ -31,6 +31,9 @@ export default {
   created() {
     this.setFlatButtonUrl('/create-playlist')
   },
+  mounted() {
+    this.setFlatButtonUrl('/create-playlist')
+  },
   beforeDestroy() {
     this.setFlatButtonUrl('/upload-my-music')
   }
