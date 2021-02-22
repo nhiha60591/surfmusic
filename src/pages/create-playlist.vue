@@ -28,7 +28,6 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: "upload-my-music",
   methods: {
     ...mapActions('app', ['setShowHeader', 'setShowFlatButton']),
     openFile() {

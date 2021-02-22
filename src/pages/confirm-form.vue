@@ -34,7 +34,6 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: "upload-my-music",
   methods: {
     ...mapActions('app', ['setShowHeader', 'setShowFlatButton']),
     openFile() {
@@ -48,6 +47,10 @@ export default {
     }
   },
   created() {
+    this.setShowHeader(false)
+    this.setShowFlatButton(false)
+  },
+  mounted() {
     this.setShowHeader(false)
     this.setShowFlatButton(false)
   },
