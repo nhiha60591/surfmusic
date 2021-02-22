@@ -35,7 +35,7 @@ export default {
       this.$refs.file.click()
     },
     onOK() {
-      this.$router.push('/confirm-form')
+      this.$router.push('/playlist')
     },
     onCancel() {
       this.$router.push('/')
