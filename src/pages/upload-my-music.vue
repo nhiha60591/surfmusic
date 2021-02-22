@@ -115,6 +115,10 @@ export default {
     this.setShowHeader(false)
     this.setShowFlatButton(false)
   },
+  mounted() {
+    this.setShowHeader(false)
+    this.setShowFlatButton(false)
+  },
   beforeDestroy() {
     this.setShowHeader(true)
     this.setShowFlatButton(true)
