@@ -1,6 +1,6 @@
 <template>
   <div class="upload-my-music p-4 text-white relative">
-    <div class="absolute top-4 right-4">
+    <div class="absolute top-6 right-4">
       <router-link to="/playlist"><img src="../assets/close.svg" alt="Close"></router-link>
     </div>
     <div class="create-playlist-form">
