@@ -1,7 +1,7 @@
 <template>
   <div class="music-item flex w-full justify-between" :class="{'is-playing': music.isPlaying}">
-    <div class="music-item-info flex items-center">
-      <div class="w-3">
+    <div class="music-item-info flex items-center pl-1">
+      <div class="w-3" v-if="showDot">
         <svg v-if="!music.isPlayed" xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6">
           <circle id="Ellipse_61" data-name="Ellipse 61" cx="3" cy="3" r="3" fill="#80deea"/>
         </svg>
@@ -21,7 +21,7 @@
       </div>
       <div class="music-info text-white pl-4">
         <h3 class="font-bold music-name"><a href="#">{{ music.title }}</a></h3>
-        <p><a href="#">{{ music.artist }}</a></p>
+        <p><a href="#" class="artist-name">{{ music.artist }}</a></p>
       </div>
     </div>
     <div class="music-item-actions flex items-center">
@@ -37,6 +37,12 @@
 <script>
 export default {
   props: {
+    showDot: {
+      type: Boolean,
+      default() {
+        return false
+      }
+    },
     music: {
       type: Object,
       default() {
@@ -74,5 +80,14 @@ export default {
   }
   .music-name {
     font-size: 18px;
+    &:hover {
+      color: darken(#FFF, 20);
+    }
+  }
+  .artist-name {
+    color: #A6A6A6;
+    &:hover {
+      color: darken(#A6A6A6, 20);
+    }
   }
 </style>

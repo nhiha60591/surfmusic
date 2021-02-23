@@ -31,7 +31,7 @@
       </button>
     </div>
     <div class="music-items">
-      <MusicItem class="mb-1" v-for="music in musics" :key="`music-${music.id}`" :music="music"></MusicItem>
+      <MusicItem class="mb-1" v-for="music in musics" :key="`music-${music.id}`" :music="music" :show-dot="true"></MusicItem>
     </div>
   </div>
 </template>

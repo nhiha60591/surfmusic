@@ -5,7 +5,7 @@
         <div class="inset-y-0 left-0 flex items-center w-full">
           <!-- Mobile menu button-->
           <button
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-0 focus:ring-white absolute left-1.5 top-3"
+            class="inline-flex items-center justify-center py-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-0 focus:ring-white absolute left-1.5 top-3"
             @click.prevent="toggleMenu"
             v-if="isMobile"
             aria-expanded="false">
@@ -21,7 +21,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-          <img class="h-8 w-auto mx-auto" src="../../assets/logo.png" alt="Surf Music" />
+          <router-link to="/" class="w-auto mx-auto"><img class="h-8" src="../../assets/logo.png" alt="Surf Music" /></router-link>
         </div>
       </div>
     </div>
