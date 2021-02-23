@@ -48,6 +48,18 @@ export const constantRoutes = [
         path: 'playlist/:id',
         component: () => import('../pages/playlist-detail'),
       },
+      {
+        path: 'requested-playlist',
+        component: () => import('../pages/requested-playlist'),
+      },
+      {
+        path: 'requested-playlist-detail/:id',
+        component: () => import('../pages/requested-playlist-detail'),
+      },
+      {
+        path: 'add-music',
+        component: () => import('../pages/add-music'),
+      },
     ]
   },
   ...auth,

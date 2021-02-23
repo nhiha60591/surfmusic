@@ -12,16 +12,16 @@
           </div>
         </div>
         <router-link to="/" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
-          <span class="menu-icon pl-4"><img src="../../assets/icons/home-white.svg"></span>
-          <span class="menu-text font-bold">Home</span>
-        </router-link>
-        <router-link to="/music" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/audiotrack-white.svg"></span>
-          <span class="menu-text font-bold">Musics</span>
+          <span class="menu-text font-bold">My Musics</span>
         </router-link>
         <router-link to="/playlist" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/queue_music-white.svg"></span>
           <span class="menu-text font-bold">Playlists</span>
+        </router-link>
+        <router-link to="/requested-playlist" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
+          <span class="menu-icon pl-4"><img src="../../assets/icons/requested-playlist.svg"></span>
+          <span class="menu-text font-bold">Requested Playlists</span>
         </router-link>
         <a href="#" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/favorite-white.svg"></span>

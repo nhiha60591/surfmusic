@@ -25,11 +25,17 @@
       </div>
     </div>
     <div class="music-item-actions flex items-center">
-      <a href="#" class="mr-4">
-        <svg xmlns="http://www.w3.org/2000/svg" width="4" height="16" viewBox="0 0 4 16">
-          <path id="Path_128" data-name="Path 128" d="M12,8a2,2,0,1,0-2-2A2.006,2.006,0,0,0,12,8Zm0,2a2,2,0,1,0,2,2A2.006,2.006,0,0,0,12,10Zm0,6a2,2,0,1,0,2,2A2.006,2.006,0,0,0,12,16Z" transform="translate(-10 -4)" fill="#fff"/>
-        </svg>
-      </a>
+      <template v-if="addable">
+        <button class="rounded-full px-5 py-2 add-btn uppercase font-bold" v-if="!music.isAdded">Add</button>
+        <img v-else src="../assets/icons/checked@2x.png" width="18" class="mr-6" alt="">
+      </template>
+      <template v-else>
+        <a href="#" class="mr-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="4" height="16" viewBox="0 0 4 16">
+            <path id="Path_128" data-name="Path 128" d="M12,8a2,2,0,1,0-2-2A2.006,2.006,0,0,0,12,8Zm0,2a2,2,0,1,0,2,2A2.006,2.006,0,0,0,12,10Zm0,6a2,2,0,1,0,2,2A2.006,2.006,0,0,0,12,16Z" transform="translate(-10 -4)" fill="#fff"/>
+          </svg>
+        </a>
+      </template>
     </div>
   </div>
 </template>
@@ -43,6 +49,12 @@ export default {
         return false
       }
     },
+    addable: {
+      type: Boolean,
+      default() {
+        return false
+      }
+    },
     music: {
       type: Object,
       default() {
@@ -51,6 +63,7 @@ export default {
           artist: 'Artist Name',
           isPlaying: false,
           isPlayed: true,
+          isAdded: false
         }
       }
     }
@@ -89,5 +102,9 @@ export default {
     &:hover {
       color: darken(#A6A6A6, 20);
     }
+  }
+  .add-btn {
+    background: #344749;
+    color: #80DEEA;
   }
 </style>

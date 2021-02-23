@@ -80,10 +80,10 @@ export default {
     ...mapActions('app', ['setFlatButtonUrl'])
   },
   created() {
-    this.setFlatButtonUrl('/create-playlist')
+    this.setFlatButtonUrl('/add-music')
   },
   mounted() {
-    this.setFlatButtonUrl('/create-playlist')
+    this.setFlatButtonUrl('/add-music')
   },
   beforeDestroy() {
     this.setFlatButtonUrl('/upload-my-music')
