@@ -1,9 +1,9 @@
 <template>
   <div class="playlist-detail pb-12 mb-12">
-    <div class="requested-playlist-info flex w-full flex-wrap px-4 text-white">
+    <div class="requested-playlist-info flex flex-col w-full flex-wrap px-4 text-white">
       <div class="overflow-hidden -mx-4">
         <router-link :to="`/requested-playlist-detail/1`">
-          <img src="../assets/requested-playlist.jpg" alt="Requested Playlist" />
+          <img src="../assets/requested-playlist.jpg" class="w-full" alt="Requested Playlist" />
         </router-link>
       </div>
       <h2 class="my-2 font-bold"><router-link :to="`/requested-playlist-detail/1`">Requested Playlist</router-link></h2>
@@ -62,10 +62,10 @@ export default {
     ...mapActions('app', ['setFlatButtonUrl'])
   },
   created() {
-    this.setFlatButtonUrl('/create-playlist')
+    this.setFlatButtonUrl('/add-music')
   },
   mounted() {
-    this.setFlatButtonUrl('/create-playlist')
+    this.setFlatButtonUrl('/add-music')
   },
   beforeDestroy() {
     this.setFlatButtonUrl('/upload-my-music')

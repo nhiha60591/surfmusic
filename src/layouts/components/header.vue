@@ -1,13 +1,12 @@
 <template>
   <nav class="bg-gray-800 header" style="background-color: #121212 !important;">
-    <div class="mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="mx-auto px-2">
       <div class="relative flex items-center justify-between h-16">
         <div class="inset-y-0 left-0 flex items-center w-full">
           <!-- Mobile menu button-->
           <button
             class="inline-flex items-center justify-center py-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-0 focus:ring-white absolute left-1.5 top-3"
             @click.prevent="toggleMenu"
-            v-if="isMobile"
             aria-expanded="false">
             <span class="sr-only">Open main menu</span>
             <!-- Icon when menu is closed. -->

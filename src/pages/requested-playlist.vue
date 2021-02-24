@@ -13,10 +13,10 @@
         </a>
       </div>
     </div>
-    <div class="requested-playlist-info flex w-full flex-wrap px-4 text-white">
+    <div class="requested-playlist-info flex flex-col w-full flex-wrap px-4 text-white">
       <div class="rounded-lg overflow-hidden">
         <router-link :to="`/requested-playlist-detail/1`">
-          <img src="../assets/requested-playlist.jpg" alt="Requested Playlist" />
+          <img src="../assets/requested-playlist.jpg" class="w-full rounded-lg overflow-hidden" alt="Requested Playlist" />
         </router-link>
       </div>
       <h2 class="my-2 font-bold"><router-link :to="`/requested-playlist-detail/1`">Requested Playlist</router-link></h2>
@@ -35,7 +35,7 @@
         <div class="requested-playlist-info text-white mt-2">
           <h3 class="font-bold"><router-link :to="`/requested-playlist-detail/${item.id}`">Requested Playlist</router-link></h3>
           <p class="my-2">
-            <span class="time start">2020.10.10</span> - <span class="time end">2020.12.12</span>
+            <span class="time start text-sm">2020.10.10</span> - <span class="time end text-sm">2020.12.12</span>
           </p>
         </div>
       </div>
@@ -63,21 +63,38 @@ export default {
           image: "assets/requested-item-2.jpg",
           start: "2020.10.10",
           end: "2020.12.12"
-        }
+        },
+        {
+          id: 3,
+          title: "Requested Playlist",
+          image: "assets/requested-item-2.jpg",
+          start: "2020.10.10",
+          end: "2020.12.12"
+        },
+        {
+          id: 4,
+          title: "Requested Playlist",
+          image: "assets/requested-item-2.jpg",
+          start: "2020.10.10",
+          end: "2020.12.12"
+        },
       ],
     }
   },
   methods: {
-    ...mapActions('app', ['setFlatButtonUrl'])
+    ...mapActions('app', ['setFlatButtonUrl', 'setShowFlatButton'])
   },
   created() {
     this.setFlatButtonUrl('/create-playlist')
+    this.setShowFlatButton(false)
   },
   mounted() {
     this.setFlatButtonUrl('/create-playlist')
+    this.setShowFlatButton(false)
   },
   beforeDestroy() {
     this.setFlatButtonUrl('/upload-my-music')
+    this.setShowFlatButton(true)
   }
 }
 </script>
