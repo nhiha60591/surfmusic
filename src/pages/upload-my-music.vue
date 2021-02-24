@@ -3,7 +3,7 @@
     <div class="absolute top-6 right-4">
       <router-link to="/"><img src="../assets/close.svg" alt="Close"></router-link>
     </div>
-    <h1 class="text-center text-white font-bold text-2xl">Upload My Music</h1>
+    <h1 class="text-center mt-10 text-white font-bold text-2xl">Upload My Music</h1>
     <div class="flex w-full justify-center mt-8">
       <img src="../assets/icons/audiotrack-white.svg" class="p-5 bg-gray-600 block rounded-full" width="100" alt="Audio Track" />
     </div>

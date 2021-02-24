@@ -21,11 +21,16 @@ input:focus {
   min-width: 100vw;
 }
 .is-toggle-sidebar .wrap {
-  min-width: calc(100vw - 258px);
+  min-width: calc(100vw - 300px);
 }
 @media (max-width: 600px) {
   .is-toggle-sidebar .wrap {
     min-width: 100vw;
+  }
+}
+@media (min-width: 601px) {
+  .flat-btn {
+    top: 4.5rem !important;
   }
 }
 .auth-page {

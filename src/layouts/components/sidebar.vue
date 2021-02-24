@@ -8,7 +8,7 @@
           </div>
           <div class="user-info pl-4">
             <div class="menu-text font-bold mb-2">User Name</div>
-            <strong class="border rounded-full px-4 py-1 text-sm uppercase">Stuff</strong>
+            <strong class="border rounded-full px-4 py-1 text-sm uppercase">Stuff_Producer</strong>
           </div>
         </div>
         <router-link to="/" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
