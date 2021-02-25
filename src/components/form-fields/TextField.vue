@@ -94,7 +94,7 @@ export default {
       }
       .password-btn {
         position: absolute;
-        right: 10px;
+        right: 1.5%;
         top: calc(50% - 7.5px);
         z-index: 9999;
       }

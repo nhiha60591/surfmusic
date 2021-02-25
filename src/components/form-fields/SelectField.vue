@@ -59,7 +59,7 @@ export default {
       overflow: hidden;
       background-image: url("../../assets/dropdown-icon.svg");
       background-repeat: no-repeat;
-      background-position: 97% 49%;
+      background-position: 98% 49%;
       display: block;
       width: 100%;
       label {
