@@ -2,8 +2,7 @@
   <div class="s-input relative" :class="{'focus': isFocusing}">
     <div class="s-input-control" @click="clickFocus">
       <label>{{ label }}</label>
-      <input :type="inputType" ref="input" @input="onFocus" @blur="onBlur" v-model="input" @focus="onFocus">
-      <button v-if="type === 'password' || hideable" class="password-btn" @click="changeShowPassword"><img src="../../assets/icons/eye.png"></button>
+      <textarea ref="input" @input="onFocus" @blur="onBlur" v-model="input" @focus="onFocus"></textarea>
     </div>
   </div>
 </template>
@@ -28,8 +27,6 @@ export default {
     return {
       isFocusing: false,
       input: null,
-      isShowPassword: false,
-      hideable: false
     }
   },
   watch: {
@@ -38,13 +35,6 @@ export default {
         this.isFocusing = true
       }
     },
-  },
-  computed: {
-    inputType() {
-      if (this.type === 'password' && !this.isShowPassword) return 'password'
-      if (this.hideable && !this.isShowPassword) return 'password'
-      return 'text'
-    }
   },
   methods: {
     onFocus() {
@@ -60,10 +50,6 @@ export default {
     clickFocus() {
       this.$refs.input.focus()
     },
-    changeShowPassword() {
-      this.isShowPassword = !this.isShowPassword
-      this.hideable = true
-    }
   },
 }
 </script>
@@ -84,13 +70,14 @@ export default {
         color: #757575;
         transition: all 0.5s;
       }
-      input {
+      textarea {
         display: block;
         width: 100%;
         background: transparent;
         margin-top: 1.5rem;
         padding: 0.125rem 1rem 0.5rem;
         color: #FFF;
+        outline: none;
       }
       .password-btn {
         position: absolute;

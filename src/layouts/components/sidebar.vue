@@ -43,10 +43,10 @@
           <span class="menu-icon pl-4"><img src="../../assets/icons/people_alt-white.svg"></span>
           <span class="menu-text font-bold">Stuff</span>
         </a>
-        <a href="#" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
-          <span class="menu-icon pl-4"><img src="../../assets/icons/account_circle-white.svg"></span>
+        <router-link to="/account/basic" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
+          <span class="menu-icon pl-4"><img src="../../assets/icons/account_circle-white.svg" alt="Account" /></span>
           <span class="menu-text font-bold">Account</span>
-        </a>
+        </router-link>
         <a href="#" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/notification_important-white.svg"></span>
           <span class="menu-text font-bold">Notification</span>

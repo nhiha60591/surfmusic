@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import auth from './modules/auth'
+import account from './modules/account'
 import Layout from '../layouts/app'
 import Home from '../pages/home'
 import store from "../store";
@@ -63,6 +64,7 @@ export const constantRoutes = [
     ]
   },
   ...auth,
+  ...account,
   {
     path: '*',
     redirect: '/404',
