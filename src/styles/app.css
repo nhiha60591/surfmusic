@@ -30,7 +30,8 @@ input:focus {
 }
 @media (min-width: 601px) {
   .flat-btn {
-    top: 6rem !important;
+    top: 7rem !important;
+    right: 3rem !important;
   }
 }
 .auth-page {
