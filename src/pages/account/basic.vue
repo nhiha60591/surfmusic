@@ -10,6 +10,9 @@
       </ul>
     </div>
     <div class="form-fields p-4">
+      <div class="avatar pb-8 flex w-full justify-center items-center">
+        <img src="../../assets/avatar.svg" class="rounded-full overflow-hidden" alt="">
+      </div>
       <TextField v-model="form.email" label="Email" class="mb-4"></TextField>
       <TextField v-model="form.name" label="Name" class="mb-4"></TextField>
       <SelectField v-model="form.type" label="Account Type" class="mb-4"></SelectField>
