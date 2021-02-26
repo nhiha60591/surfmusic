@@ -28,33 +28,34 @@
           <div class="flex flex justify-between">
             <div class="left flex items-end">
               <img src="../../assets/discography-img.jpg" alt="Discography Item">
-              <a href="" class="ml-2">
+              <label class="ml-2 cursor-pointer flex">
                 <svg id="create-white-18dp_2_" data-name="create-white-18dp (2)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path id="Path_144" data-name="Path 144" d="M0,0H24V24H0Z" fill="none"/>
                   <path id="Path_145" data-name="Path 145" d="M3,17.25V21H6.75L17.81,9.94,14.06,6.19ZM20.71,7.04a1,1,0,0,0,0-1.41L18.37,3.29a1,1,0,0,0-1.41,0L15.13,5.12l3.75,3.75,1.83-1.83Z" fill="#80deea"/>
                 </svg>
-              </a>
+                <input type="file" class="w-1 h-1 opacity-0">
+              </label>
             </div>
             <div class="right">
               <div class="flex items-center">
-                <a href="" class="mr-2">
+                <button type="button" class="mr-2 focus:outline-none">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8">
                     <path id="Path_148" data-name="Path 148" d="M8,5V21l8-8Z" transform="translate(21 -8) rotate(90)" fill="#fff" opacity="0.6"/>
                   </svg>
-                </a>
-                <a href="" class="mr-2">
+                </button>
+                <button type="button" class="mr-2 focus:outline-none">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8">
                     <path id="Path_149" data-name="Path 149" d="M8,5V21l8-8Z" transform="translate(-5 16) rotate(-90)" fill="#fff" opacity="0.6"/>
                   </svg>
-                </a>
-                <a href="">
+                </button>
+                <button class="focus:outline-none">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <g id="delete-white-18dp_1_" data-name="delete-white-18dp (1)" opacity="0.6">
                       <path id="Path_146" data-name="Path 146" d="M0,0H24V24H0Z" fill="none"/>
                       <path id="Path_147" data-name="Path 147" d="M6,19a2.006,2.006,0,0,0,2,2h8a2.006,2.006,0,0,0,2-2V7H6ZM19,4H15.5l-1-1h-5l-1,1H5V6H19Z" fill="#fff"/>
                     </g>
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </div>
