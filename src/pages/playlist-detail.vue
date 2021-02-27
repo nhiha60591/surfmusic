@@ -2,7 +2,7 @@
   <div class="playlist-detail pb-12 mb-12">
     <div class="info flex p-14 justify-center items-center relative overflow-hidden">
       <img src="../assets/pexels-photo-3769099.png" class="absolute top-0 left-0 w-full h-auto opacity-60 z-0" alt="">
-      <div class="actions flex justify-center items-center absolute right-4 top-2">
+      <div class="actions flex justify-center items-center absolute right-4 top-2 md:right-16 md:top-4">
         <a href="#" class="mr-4 opacity-50">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g opacity="0.87"><path d="M0,0H24V24H0Z" fill="none"/><path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5A5.447,5.447,0,0,1,7.5,3,5.988,5.988,0,0,1,12,5.09,5.988,5.988,0,0,1,16.5,3,5.447,5.447,0,0,1,22,8.5c0,3.78-3.4,6.86-8.55,11.54Z" fill="#fff"/></g></svg>
         </a>

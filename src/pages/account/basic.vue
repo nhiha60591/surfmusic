@@ -15,7 +15,7 @@
       </div>
       <TextField v-model="form.email" label="Email" class="mb-4"></TextField>
       <TextField v-model="form.name" label="Name" class="mb-4"></TextField>
-      <SelectField v-model="form.type" label="Account Type" class="mb-4"></SelectField>
+      <SelectField v-model="form.type" label="Account Type" class="mb-4" :items="items"></SelectField>
       <SelectField v-model="form.language" label="Language" class="mb-4"></SelectField>
       <TextField v-model="form.password" type="password" label="Password" class="mb-4"></TextField>
       <SelectField v-model="form.plan" label="Language" class="mb-4"></SelectField>
@@ -34,6 +34,28 @@ export default {
   data() {
     return {
       form: {}
+    }
+  },
+  computed: {
+    items() {
+      return [
+        {
+          label: "Staff",
+          value: 1
+        },
+        {
+          label: "Producer",
+          value: 2
+        },
+        {
+          label: "Manager",
+          value: 3
+        },
+        {
+          label: "Member",
+          value: 4
+        },
+      ]
     }
   }
 }

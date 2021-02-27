@@ -30,7 +30,7 @@ input:focus {
 }
 @media (min-width: 601px) {
   .flat-btn {
-    top: 6rem !important;
+    top: 4.3rem !important;
     right: 1rem !important;
   }
 }

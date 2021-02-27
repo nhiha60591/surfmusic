@@ -1,15 +1,23 @@
 <template>
-  <div class="s-select relative" :class="{'focus': isFocusing}" @click="clickFocus">
-    <div class="s-select-control">
+  <div class="s-select relative" :class="{'focus': isFocusing}">
+    <div class="s-select-control" @click="clickFocus">
       <label>{{ label }}</label>
-      <select v-model="value" ref="select">
-        <option v-for="item in items" :key="item.value" :value="item.value">{{ item.label }}</option>
-      </select>
+      <div class="selected" v-if="value">{{ value.label }}</div>
+      <div v-else class="not-selected"></div>
+    </div>
+    <div class="absolute t-0 l-0 w-full dropdown-box z-50 text-white bg-gray-primary py-2" v-if="openDropdownBox === true">
+      <button
+        v-for="item in items"
+        :key="item.value"
+        class="px-4 py-2 font-bold hover:bg-gray-900 flex w-full"
+        @click.prevent="chooseValue(item)">{{ item.label }}</button>
     </div>
   </div>
 </template>
 
 <script>
+import ClickOutside from 'vue-click-outside'
+
 export default {
   props: {
     label: {
@@ -32,21 +40,26 @@ export default {
   },
   data() {
     return {
-      isFocusing: false,
-      value: null
+      value: null,
+      openDropdownBox: false,
     }
   },
-  watch: {
-    value() {
-      if (this.value) {
-        this.isFocusing = true
-      }
+  computed: {
+    isFocusing() {
+      return this.openDropdownBox || this.value
     }
   },
   methods: {
     clickFocus() {
-      this.$refs.select.click()
+      this.openDropdownBox = true
+    },
+    chooseValue(item) {
+      this.value = item
+      this.openDropdownBox = false
     }
+  },
+  directives: {
+    ClickOutside
   },
 }
 </script>
@@ -72,7 +85,10 @@ export default {
         color: #757575;
         transition: all 0.5s;
       }
-      select {
+      .dropdown-box {
+        z-index: 50;
+      }
+      .selected {
         color: rgba(255, 255, 255, 0.6);
         appearance: none;
         -webkit-appearance: none;
@@ -82,15 +98,14 @@ export default {
         display: block;
         width: 100%;
         margin-top: 1.5rem;
-        padding: 0.125rem 1rem;
-        padding-bottom: 0.5rem;
+        padding: 0.125rem 1rem 0.5rem;
         outline: none;
         box-shadow: none;
         overflow: hidden;
-        option {
-          color: rgba(255, 255, 255, 0.6);
-          width: 100%;
-        }
+      }
+      .not-selected {
+        height: 55px;
+        width: 100%;
       }
     }
     &.focus {
