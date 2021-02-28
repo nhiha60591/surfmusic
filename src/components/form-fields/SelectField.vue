@@ -1,5 +1,5 @@
 <template>
-  <div class="s-select relative" :class="{'focus': isFocusing}">
+  <div class="s-select relative" :class="{'focus': isFocusing}" v-click-outside="clickOutSide">
     <div class="s-select-control" @click="clickFocus">
       <label>{{ label }}</label>
       <div class="selected" v-if="value">{{ value.label }}</div>
@@ -56,6 +56,11 @@ export default {
     chooseValue(item) {
       this.value = item
       this.openDropdownBox = false
+    },
+    clickOutSide() {
+      if (this.openDropdownBox === true) {
+        this.openDropdownBox = false
+      }
     }
   },
   directives: {
