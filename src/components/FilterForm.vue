@@ -78,10 +78,10 @@ export default {
   methods: {
     ...mapActions('app', ['setShowHeader', 'setShowFlatButton']),
     onOK() {
-      this.$router.push('/playlist/1')
+      this.$emit('close')
     },
     onCancel() {
-      this.$router.push('/playlist/1')
+      this.$emit('close')
     },
     onClose() {
       this.$emit('close')
