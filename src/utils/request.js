@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getToken, setToken } from '@/utils/auth';
+import store from "../store";
 
 // Create axios instance
 const service = axios.create({
@@ -10,9 +10,9 @@ const service = axios.create({
 // Request interceptor
 service.interceptors.request.use(
   config => {
-    const token = getToken();
+    const token = store.getters['user/accessToken'];
     if (token) {
-      config.headers['Authorization'] = 'Bearer ' + getToken(); // Set JWT token
+      config.headers['Authorization'] = 'Bearer ' + token; // Set JWT token
     }
 
     return config;
@@ -26,7 +26,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     if (response.headers.authorization) {
-      setToken(response.headers.authorization);
+      store.dispatch('user/setToken', response.headers.authorization)
       response.data.token = response.headers.authorization;
     }
 

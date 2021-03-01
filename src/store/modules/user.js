@@ -9,7 +9,10 @@ const state = {
 const getters = {
   isAuthenticated: (state) => {
     return typeof state.token !== "undefined" && state.token
-  }
+  },
+  accessToken: (state) => {
+    return state.token
+  },
 }
 
 const mutations = {
