@@ -56,6 +56,7 @@ export default {
     chooseValue(item) {
       this.value = item
       this.openDropdownBox = false
+      this.$emit('input', this.value)
     },
     clickOutSide() {
       if (this.openDropdownBox === true) {

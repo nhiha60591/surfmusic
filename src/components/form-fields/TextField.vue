@@ -2,7 +2,7 @@
   <div class="s-input relative" :class="{'focus': isFocusing}">
     <div class="s-input-control" @click="clickFocus">
       <label>{{ label }}</label>
-      <input :type="inputType" ref="input" @input="onFocus" @blur="onBlur" v-model="input" @focus="onFocus">
+      <input :type="inputType" ref="input" v-on:input="$emit('input', $event.target.value)" @input="onFocus" @blur="onBlur" v-model="input" @focus="onFocus">
       <button v-if="type === 'password' || hideable" class="password-btn" @click="changeShowPassword"><img src="../../assets/icons/eye.png"></button>
     </div>
   </div>

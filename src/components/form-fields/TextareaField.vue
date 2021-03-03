@@ -2,7 +2,7 @@
   <div class="s-input relative" :class="{'focus': isFocusing}">
     <div class="s-input-control" @click="clickFocus">
       <label>{{ label }}</label>
-      <textarea ref="input" @input="onFocus" @blur="onBlur" v-model="input" @focus="onFocus"></textarea>
+      <textarea ref="input" @input="onFocus" v-on:input="$emit('input', $event.target.value)" @blur="onBlur" v-model="input" @focus="onFocus"></textarea>
     </div>
   </div>
 </template>

@@ -4,7 +4,6 @@ import App from './App.vue'
 import './styles/app.css'
 import store from './store'
 import router from './routes'
-
 import './plugins'
 import './thirdParty'
 
