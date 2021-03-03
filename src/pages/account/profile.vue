@@ -80,6 +80,8 @@
 <script>
 import TextField from "@/components/form-fields/TextField";
 import TextareaField from "@/components/form-fields/TextareaField";
+import UserResource from '@/api/user';
+const userResource = new UserResource();
 
 export default {
   components: {TextField, TextareaField},
@@ -87,7 +89,21 @@ export default {
     return {
       form: {}
     }
-  }
+  },
+  created() {
+    this.getUserProfile()
+  },
+  methods: {
+    async getUserProfile() {
+      try {
+        let { data } = await userResource.get(1)
+        this.form = data
+        console.log(data)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  },
 }
 </script>
 
