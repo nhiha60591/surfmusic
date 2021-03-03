@@ -45,7 +45,7 @@
         <img v-else src="../assets/icons/checked@2x.png" width="18" class="mr-6" alt="">
       </template>
       <template v-else>
-        <button class="focus:outline-none px-4 cursor-pointer z-50 relative" @click.prevent="onShare">
+        <button class="focus:outline-none px-4 cursor-pointer z-10 relative" @click.prevent="onShare">
           <svg xmlns="http://www.w3.org/2000/svg" width="4" height="16" viewBox="0 0 4 16">
             <path id="Path_128" data-name="Path 128" d="M12,8a2,2,0,1,0-2-2A2.006,2.006,0,0,0,12,8Zm0,2a2,2,0,1,0,2,2A2.006,2.006,0,0,0,12,10Zm0,6a2,2,0,1,0,2,2A2.006,2.006,0,0,0,12,16Z" transform="translate(-10 -4)" fill="#fff"/>
           </svg>
