@@ -15,6 +15,13 @@
         </div>
       </div>
       <div class="music-items">
+        <div class="hidden md:flex bg-black w-full justify-between items-center py-2">
+          <div class="w-2/6 text-white text-opacity-60 text-center font-semibold">Title</div>
+          <div class="w-1/6 text-white text-opacity-60 text-center font-semibold">Tempo</div>
+          <div class="w-1/6 text-white text-opacity-60 text-center font-semibold">Genre</div>
+          <div class="w-1/6 text-white text-opacity-60 text-center font-semibold">Star</div>
+          <div class="w-1/6 text-white text-opacity-60 text-center font-semibold"></div>
+        </div>
         <MusicItem class="mb-1" v-for="n in 6" :key="`music-${n}`"></MusicItem>
       </div>
     </div>

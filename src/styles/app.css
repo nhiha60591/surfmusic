@@ -23,7 +23,7 @@ input:focus {
 .is-toggle-sidebar .wrap {
   min-width: calc(100vw - 300px);
 }
-.action-box {
+.action-box ul, .action-box li {
   background-color: #2F2F2F;
 }
 .bottom-22 {

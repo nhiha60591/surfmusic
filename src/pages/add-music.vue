@@ -11,6 +11,13 @@
         class="search rounded-md border border-gray-500 w-full my-2 py-2 bg-black" />
     </div>
     <div class="music-items -mx-4">
+      <div class="hidden md:flex bg-black w-full justify-between items-center py-2">
+        <div class="w-2/6 text-white text-opacity-60 text-center font-semibold">Title</div>
+        <div class="w-1/6 text-white text-opacity-60 text-center font-semibold">Tempo</div>
+        <div class="w-1/6 text-white text-opacity-60 text-center font-semibold">Genre</div>
+        <div class="w-1/6 text-white text-opacity-60 text-center font-semibold">Star</div>
+        <div class="w-1/6 text-white text-opacity-60 text-center font-semibold"></div>
+      </div>
       <MusicItem
         class="mb-1"
         v-for="music in musics"
@@ -93,10 +100,10 @@ export default {
   methods: {
     ...mapActions('app', ['setShowHeader', 'setShowFlatButton']),
     onOK() {
-      this.$router.push('/playlist/1')
+      this.$router.go(-1);
     },
     onCancel() {
-      this.$router.push('/playlist/1')
+      this.$router.go(-1);
     }
   },
   created() {
@@ -117,7 +124,7 @@ export default {
 <style lang="scss">
   input.search {
     background-image: url('../assets/icons/search-icon@2x.png');
-    background-position-x: 5%;
+    background-position-x: 20px;
     background-position-y: center;
     background-repeat: no-repeat;
     background-size: 20px;
