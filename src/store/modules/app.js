@@ -2,7 +2,8 @@ const state = () => ({
   isToggleMenu: undefined,
   showHeader: true,
   showFlatButton: true,
-  flatButtonUrl: '/upload-my-music'
+  flatButtonUrl: '/upload-my-music',
+  flatButtonClass: 'bottom-4 right-4',
 })
 
 const getters = {
@@ -17,7 +18,10 @@ const getters = {
   },
   flatButtonUrl: (state) => {
     return state.flatButtonUrl
-  }
+  },
+  flatButtonClass: (state) => {
+    return state.flatButtonClass
+  },
 }
 
 const mutations = {
@@ -35,7 +39,10 @@ const mutations = {
   },
   setFlatButtonUrl(state, url) {
     state.flatButtonUrl = url
-  }
+  },
+  setFlatButtonClass(state, classString) {
+    state.flatButtonClass = classString
+  },
 }
 
 const actions = {
@@ -53,7 +60,10 @@ const actions = {
   },
   setFlatButtonUrl({ commit }, url) {
     commit('setFlatButtonUrl', url)
-  }
+  },
+  setFlatButtonClass({ commit }, classString) {
+    commit('setFlatButtonClass', classString)
+  },
 }
 
 export default {
