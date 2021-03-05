@@ -36,11 +36,15 @@ export default {
           }
         ]
       }
-    }
+    },
+    value: {
+      default() {
+        return null
+      }
+    },
   },
   data() {
     return {
-      value: null,
       openDropdownBox: false,
     }
   },

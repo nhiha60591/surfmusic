@@ -9,7 +9,7 @@
     </div>
     <div class="add-music-form pt-2 pb-4">
       <h1 class="text-center text-white font-bold text-2xl mb-4">Filter</h1>
-      <TextField label="Keyword"></TextField>
+      <TextField label="Keyword" v-model="form.keyword"></TextField>
       <SelectField label="Genre" :items="genreItems" class="mt-4"></SelectField>
       <SelectField label="Star" :items="genreItems" class="mt-4"></SelectField>
       <SelectField label="Label" :items="genreItems" class="mt-4"></SelectField>
@@ -44,6 +44,9 @@ export default {
   },
   data() {
     return {
+      form: {
+        keyword: 'Keyword enterred'
+      }
     }
   },
   watch: {

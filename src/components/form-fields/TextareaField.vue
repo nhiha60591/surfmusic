@@ -21,6 +21,11 @@ export default {
       default() {
         return "text";
       }
+    },
+    value: {
+      default() {
+        return null
+      }
     }
   },
   data() {
@@ -31,10 +36,20 @@ export default {
   },
   watch: {
     input() {
+      if (this.value && this.value.length) {
+        this.isFocusing = true
+        this.input = this.value
+      }
       if (this.input && this.input.length) {
         this.isFocusing = true
       }
     },
+  },
+  created() {
+    if (this.value && this.value.length) {
+      this.isFocusing = true
+      this.input = this.value
+    }
   },
   methods: {
     onFocus() {
