@@ -2,7 +2,7 @@
   <div class="s-select relative" :class="{'focus': isFocusing}" v-click-outside="clickOutSide">
     <div class="s-select-control" @click="clickFocus">
       <label>{{ label }}</label>
-      <div class="selected" v-if="value">{{ value.label }}</div>
+      <div class="selected" v-if="selected">{{ selected.label }}</div>
       <div v-else class="not-selected"></div>
     </div>
     <div class="absolute t-0 l-0 w-full dropdown-box z-50 text-white bg-gray-primary py-2" v-if="openDropdownBox === true">
@@ -41,16 +41,17 @@ export default {
       default() {
         return null
       }
-    },
+    }
   },
   data() {
     return {
       openDropdownBox: false,
+      selected: null,
     }
   },
   computed: {
     isFocusing() {
-      return this.openDropdownBox || this.value
+      return this.openDropdownBox || this.selected
     }
   },
   methods: {
@@ -58,15 +59,19 @@ export default {
       this.openDropdownBox = true
     },
     chooseValue(item) {
-      this.value = item
+      this.selected = item
       this.openDropdownBox = false
-      this.$emit('input', this.value)
+      this.$emit("input", this.selected);
     },
     clickOutSide() {
       if (this.openDropdownBox === true) {
         this.openDropdownBox = false
       }
     }
+  },
+  mounted() {
+    this.selected = this.value
+    this.$emit('input', this.value)
   },
   directives: {
     ClickOutside

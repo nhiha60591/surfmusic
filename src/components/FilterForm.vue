@@ -13,7 +13,7 @@
       <SelectField label="Genre" :items="genreItems" class="mt-4"></SelectField>
       <SelectField label="Star" :items="genreItems" class="mt-4"></SelectField>
       <SelectField label="Label" :items="genreItems" class="mt-4"></SelectField>
-      <SelectField label="Label" :items="genreItems" class="mt-4"></SelectField>
+      <SelectField label="Label" :items="genreItems" v-model="form.genre" class="mt-4"></SelectField>
     </div>
 
     <div class="mt-6 flex">
@@ -45,7 +45,11 @@ export default {
   data() {
     return {
       form: {
-        keyword: 'Keyword enterred'
+        keyword: 'Keyword enterred',
+        genre: {
+          value: 1,
+          label: 'Inst'
+        }
       }
     }
   },
