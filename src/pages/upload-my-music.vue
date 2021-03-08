@@ -7,15 +7,39 @@
     <div class="flex w-full justify-center mt-8">
       <img src="../assets/icons/audiotrack-white.svg" class="p-5 bg-gray-600 block rounded-full" width="100" alt="Audio Track" />
     </div>
-    <input type="file" name="file" ref="file" id="file" style="opacity: 0;">
-    <button class="block focus:outline-none w-full text-center rounded-sm border-2 font-bold border-blue-primary text-blue-primary uppercase py-4 mb-4" @click.prevent="openFile">Upload music file</button>
-    <div class="my-3">
-      <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Music Name" />
+    <div class="drag-to-upload border-dashed border-2 border-blue-primary px-4 py-4 mt-14 text-center text-blue-primary" @drop.prevent="addFile" @dragover.prevent>
+      <p class="py-4">Drag files heres</p>
+      <p class="py-4">or</p>
+      <button class="focus:outline-none text-center rounded-sm border-2 font-bold border-blue-primary text-blue-primary uppercase py-4 mb-4 px-16" @click.prevent="openFile">Browse Files</button>
+    </div>
+    <input type="file" name="file" ref="file" multiple @change="fileChanged" id="file" style="opacity: 0; width: 1px; height: 1px; visibility: visible">
+    <div class="file-items">
+      <div class="file-item w-full" v-for="(file, index) in files" :key="`file-${index}`">
+        <div class="flex justify-between">
+          <div class="title flex items-center items-center mb-4 font-bold">
+            <span class="flex w-8 h-8 rounded-full bg-gray-primary justify-center items-center mr-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g opacity="0.87"><path d="M0,0H24V24H0Z" fill="none"/><path d="M12,3v9.28A4.39,4.39,0,0,0,10.5,12a4.5,4.5,0,1,0,4.45,5H15V6h4V3Z" fill="#fff"/></g></svg>
+            </span>
+            {{ file.name }}
+          </div>
+          <div class="actions">
+            <button @click.prevent="removeFile(index)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+                <path id="Path_154" data-name="Path 154" d="M26,7.115,23.885,5,15.5,13.385,7.115,5,5,7.115,13.385,15.5,5,23.885,7.115,26,15.5,17.615,23.885,26,26,23.885,17.615,15.5Z" transform="translate(-5 -5)" fill="#fff"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <TextField label="Music Name" v-model="form.names[index]"></TextField>
+        </div>
+      </div>
     </div>
     <div class="my-3">
-      <select class="input-bg p-4 w-full rounded rounded-b-none text-white">
-        <option>Tempo</option>
-      </select>
+      <TextField label="Music Name"></TextField>
+    </div>
+    <div class="my-3">
+      <SelectField label="Type" :items="[{value: 1, label: 'Tempo'}]"></SelectField>
     </div>
     <div class="my-3">
       <h4 class="font-bold my-4">Genre</h4>
@@ -37,10 +61,10 @@
       </label>
     </div>
     <div class="my-3">
-      <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Co-Producer" />
+      <TextField label="Co-Producer"></TextField>
     </div>
     <div class="my-3">
-      <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Manager" />
+      <TextField label="Manager"></TextField>
     </div>
     <div class="my-3">
       <h4 class="font-bold my-4">Co-writing Program</h4>
@@ -56,10 +80,10 @@
       </label>
     </div>
     <div class="my-3">
-      <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Publisher" />
+      <TextField label="Publisher"></TextField>
     </div>
     <div class="my-3">
-      <textarea type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Comment"></textarea>
+      <TextareaField label="Comment"></TextareaField>
     </div>
     <div class="my-3">
       <h4 class="font-bold my-4">Currency</h4>
@@ -75,10 +99,10 @@
       </label>
     </div>
     <div class="my-3">
-      <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Royalty price" />
+      <TextField label="Royalty price"></TextField>
     </div>
     <div class="my-3">
-      <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Sellout price" />
+      <TextField label="Sellout price"></TextField>
     </div>
     <div class="my-4 flex justify-between">
       <strong class="font-bold">Status</strong>
@@ -98,21 +122,46 @@
 <script>
 import { mapActions } from 'vuex'
 import CheckField from "@/components/form-fields/CheckField";
+import TextField from '@/components/form-fields/TextField'
+import SelectField from '@/components/form-fields/SelectField'
+import TextareaField from '@/components/form-fields/TextareaField'
 
 export default {
-  components: {CheckField},
+  components: {CheckField, TextField, SelectField, TextareaField},
   data() {
     return {
+      files: [],
       genres: ['Pops', 'Ballad', 'Eurobeat', 'Dance', 'Bossa nova', 'Hip hop', 'New wave', 'GenreXXXXXXXXXXX', 'GenreYY', 'GenreZZ', 'GenreAA'],
       form: {
         genre: ['Pops', 'Eurobeat'],
+        names: [],
       }
     }
   },
   methods: {
     ...mapActions('app', ['setShowHeader', 'setShowFlatButton']),
+    addFile(e) {
+      let droppedFiles = e.dataTransfer.files;
+      if (!droppedFiles) return;
+      ([...droppedFiles]).forEach(f => {
+        this.files.push(f);
+        this.form.names.push(f.name)
+      });
+    },
     openFile() {
       this.$refs.file.click()
+    },
+    removeFile(index){
+      this.files.splice(index, 1)
+      this.form.names.splice(index, 1)
+    },
+    fileChanged(event) {
+      let changedFiles = event.target.files;
+      if (!changedFiles) return;
+      ([...changedFiles]).forEach(f => {
+        this.files.push(f);
+        this.form.names.push(f.name)
+      });
     },
     onOK() {
       this.$router.push('/confirm-form')
@@ -137,6 +186,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .title {
+    color: #707070;
+  }
   .input-bg {
     outline: none;
     background-color: rgba(255, 255, 255, 0.12);
