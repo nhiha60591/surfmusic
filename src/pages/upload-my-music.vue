@@ -18,18 +18,19 @@
       </select>
     </div>
     <div class="my-3">
-      <select class="input-bg p-4 w-full rounded rounded-b-none text-white">
-        <option>Genre</option>
-      </select>
+      <h4 class="font-bold my-4">Genre</h4>
+      <div class="genre-box flex flex-wrap">
+        <CheckField v-for="genre in genres" :key="`genre-${genre}`" class="w-1/2" :label="genre" :value="genre" v-model="form.genre"></CheckField>
+      </div>
     </div>
     <div class="my-3">
       <h4 class="font-bold my-4">Instulmental</h4>
-      <label class="ml-6 mr-8">
+      <label class="ml-6 mr-8 uppercase">
         Yes
         <input type="radio" checked name="instulmental">
         <span class="checkmark"></span>
       </label>
-      <label>
+      <label class="uppercase">
         No
         <input type="radio" name="instulmental">
         <span class="checkmark"></span>
@@ -43,12 +44,12 @@
     </div>
     <div class="my-3">
       <h4 class="font-bold my-4">Co-writing Program</h4>
-      <label class="ml-6 mr-8">
+      <label class="ml-6 mr-8 uppercase">
         Yes
         <input type="radio" checked name="coWriting">
         <span class="checkmark"></span>
       </label>
-      <label>
+      <label class="uppercase">
         No
         <input type="radio" name="coWriting">
         <span class="checkmark"></span>
@@ -62,12 +63,12 @@
     </div>
     <div class="my-3">
       <h4 class="font-bold my-4">Currency</h4>
-      <label class="ml-6 mr-8">
+      <label class="ml-6 mr-8 uppercase">
         JPY
         <input type="radio" checked name="currency">
         <span class="checkmark"></span>
       </label>
-      <label>
+      <label class="uppercase">
         USD
         <input type="radio" name="currency">
         <span class="checkmark"></span>
@@ -96,9 +97,18 @@
 
 <script>
 import { mapActions } from 'vuex'
+import CheckField from "@/components/form-fields/CheckField";
 
 export default {
-  name: "upload-my-music",
+  components: {CheckField},
+  data() {
+    return {
+      genres: ['Pops', 'Ballad', 'Eurobeat', 'Dance', 'Bossa nova', 'Hip hop', 'New wave', 'GenreXXXXXXXXXXX', 'GenreYY', 'GenreZZ', 'GenreAA'],
+      form: {
+        genre: ['Pops', 'Eurobeat'],
+      }
+    }
+  },
   methods: {
     ...mapActions('app', ['setShowHeader', 'setShowFlatButton']),
     openFile() {
@@ -158,7 +168,6 @@ export default {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    text-transform: uppercase;
     input {
       position: absolute;
       opacity: 0;
