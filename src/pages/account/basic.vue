@@ -29,6 +29,8 @@
 <script>
 import TextField from "@/components/form-fields/TextField";
 import SelectField from "@/components/form-fields/SelectField";
+import {mapActions} from "vuex";
+
 export default {
   components: { TextField, SelectField },
   data() {
@@ -57,7 +59,19 @@ export default {
         },
       ]
     }
-  }
+  },
+  methods: {
+    ...mapActions('app', ['setShowFlatButton']),
+  },
+  created() {
+    this.setShowFlatButton(false)
+  },
+  mounted() {
+    this.setShowFlatButton(false)
+  },
+  beforeDestroy() {
+    this.setShowFlatButton(true)
+  },
 }
 </script>
 

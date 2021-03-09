@@ -81,6 +81,7 @@
 import TextField from "@/components/form-fields/TextField";
 import TextareaField from "@/components/form-fields/TextareaField";
 import UserResource from '@/api/user';
+import {mapActions} from "vuex";
 const userResource = new UserResource();
 
 export default {
@@ -92,8 +93,10 @@ export default {
   },
   created() {
     this.getUserProfile()
+    this.setShowFlatButton(false)
   },
   methods: {
+    ...mapActions('app', ['setShowFlatButton']),
     async getUserProfile() {
       try {
         let { data } = await userResource.get(1)
@@ -103,6 +106,12 @@ export default {
         console.log(error)
       }
     },
+  },
+  mounted() {
+    this.setShowFlatButton(false)
+  },
+  beforeDestroy() {
+    this.setShowFlatButton(true)
   },
 }
 </script>

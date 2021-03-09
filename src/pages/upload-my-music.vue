@@ -7,10 +7,10 @@
     <div class="flex w-full justify-center mt-8">
       <img src="../assets/icons/audiotrack-white.svg" class="p-5 bg-gray-600 block rounded-full" width="100" alt="Audio Track" />
     </div>
-    <div class="drag-to-upload border-dashed border-2 border-blue-primary px-4 py-4 mt-14 text-center text-blue-primary" @drop.prevent="addFile" @dragover.prevent>
-      <p class="py-4">Drag files heres</p>
-      <p class="py-4">or</p>
-      <button class="focus:outline-none text-center rounded-sm border-2 font-bold border-blue-primary text-blue-primary uppercase py-4 mb-4 px-16" @click.prevent="openFile">Browse Files</button>
+    <div class="drag-to-upload md:border-dashed md:border-2 md:border-blue-primary md:px-4 md:py-4 mt-14 text-center text-blue-primary" @drop.prevent="addFile" @dragover.prevent>
+      <p class="hidden md:block md:py-4">Drag files heres</p>
+      <p class="hidden md:block md:py-4">or</p>
+      <button class="focus:outline-none block w-full md:inline-block md:w-auto text-center rounded-sm border-2 font-bold border-blue-primary text-blue-primary uppercase py-4 mb-4 px-16" @click.prevent="openFile">Browse Files</button>
     </div>
     <input type="file" name="file" ref="file" multiple @change="fileChanged" id="file" style="opacity: 0; width: 1px; height: 1px; visibility: visible">
     <div class="file-items">
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="my-3">
+    <div class="my-3" v-if="!files || files.length < 1">
       <TextField label="Music Name"></TextField>
     </div>
     <div class="my-3">
