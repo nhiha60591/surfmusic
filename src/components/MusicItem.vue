@@ -101,7 +101,7 @@ export default {
     ...mapActions('app', ['setFlatButtonClass']),
     onShare() {
       this.shareOpen = !this.shareOpen
-      if (this.shareOpen) {
+      if (this.shareOpen && window.innerWidth <= 600) {
         this.setFlatButtonClass('bottom-22 right-4')
       } else {
         this.setFlatButtonClass('bottom-4 right-4')
@@ -111,7 +111,7 @@ export default {
       if (this.shareOpen === true) {
         this.shareOpen = false
       }
-      if (this.shareOpen) {
+      if (this.shareOpen && window.innerWidth <= 600) {
         this.setFlatButtonClass('bottom-22 right-4')
       } else {
         this.setFlatButtonClass('bottom-4 right-4')
