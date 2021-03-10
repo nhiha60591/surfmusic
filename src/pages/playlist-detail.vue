@@ -33,10 +33,10 @@
           <img src="../assets/pexels-photo-3769099.png" class="w-full block" alt="Playlist Name">
           <div class="actions absolute right-2 top-2 rounded-full bg-black w-10 h-10 flex justify-center items-center" v-click-outside="clickOutSide">
             <button class="focus:outline-none" @click.prevent="onShare"><img src="../assets/share-btn.png" alt="Share"></button>
-            <div class="absolute top-12 right-0 action-box bg-gray-primary p-2 rounded" :class="{'hidden': !shareOpen}">
-              <ul class="block w-full text-white">
-                <li class="mb-2"><button class="focus:outline-none flex flex-row items-center py-2 font-bold"><img src="../assets/icons/edit.png" alt="Edit Playlist" class="mr-2">Edit Playlist</button></li>
-                <li class="mb-2"><button class="focus:outline-none  flex flex-row items-center py-2 font-bold"><img src="../assets/icons/share.png" alt="Share Playlist" class="mr-2">Share Playlist</button></li>
+            <div class="absolute top-12 right-0 action-box rounded" :class="{'hidden': !shareOpen}">
+              <ul class="block w-full text-white rounded overflow-hidden py-1">
+                <li class="mb-2"><button class="focus:outline-none flex flex-row items-center p-2 font-bold"><img src="../assets/icons/edit.png" alt="Edit Playlist" class="mr-2">Edit Playlist</button></li>
+                <li class="mb-2"><button class="focus:outline-none  flex flex-row items-center p-2 font-bold"><img src="../assets/icons/share.png" alt="Share Playlist" class="mr-2">Share Playlist</button></li>
               </ul>
             </div>
           </div>

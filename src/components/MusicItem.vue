@@ -50,10 +50,10 @@
             <path id="Path_128" data-name="Path 128" d="M12,8a2,2,0,1,0-2-2A2.006,2.006,0,0,0,12,8Zm0,2a2,2,0,1,0,2,2A2.006,2.006,0,0,0,12,10Zm0,6a2,2,0,1,0,2,2A2.006,2.006,0,0,0,12,16Z" transform="translate(-10 -4)" fill="#fff"/>
           </svg>
         </button>
-        <div class="fixed bottom-0 md:absolute md:top-16 right-0 md:right-2 action-box z-50 py-1 md:rounded" v-show="shareOpen">
+        <div class="fixed bottom-0 md:absolute md:top-16 right-0 md:right-2 action-box z-50 md:py-1 md:rounded" v-show="shareOpen">
           <ul class="block w-full text-white">
             <li class="mb-2"><button class="focus:outline-none flex flex-row items-center p-2 font-bold w-full" @click.prevent="onShare"><img src="../assets/icons/edit.png" alt="Edit Playlist" class="mr-2">Edit Playlist</button></li>
-            <li class="mb-2"><button class="focus:outline-none  flex flex-row items-center p-2 font-bold w-full" @click.prevent="onShare"><img src="../assets/icons/share.png" alt="Share Playlist" class="mr-2">Share Playlist</button></li>
+            <li class="pb-1 md:pb-0 md:mb-2"><button class="focus:outline-none  flex flex-row items-center p-2 font-bold w-full" @click.prevent="onShare"><img src="../assets/icons/share.png" alt="Share Playlist" class="mr-2">Share Playlist</button></li>
           </ul>
         </div>
       </template>
