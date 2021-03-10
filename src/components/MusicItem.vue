@@ -136,7 +136,7 @@ export default {
       width: 100%;
     }
   }
-  @media screen and (min-width: 601px) {
+  @media screen and (min-width: 960px) {
     .music-item {
       .action-box {
         width: 170px;
