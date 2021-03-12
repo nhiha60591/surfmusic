@@ -27,7 +27,7 @@
             <span class="time start">2020.10.10</span> - <span class="time end">2020.12.12</span>
           </p>
         </div>
-        <div class="hidden requested-playlist-info md:flex flex-col w-full md:w-1/2 flex-wrap px-4 text-white">
+        <div class="requested-playlist-info flex flex-col w-full md:w-1/2 flex-wrap px-4 text-white">
           <div class="rounded-lg overflow-hidden">
             <router-link :to="`/requested-playlist-detail/1`">
               <img src="../assets/requested-playlist.jpg" class="w-full rounded-lg overflow-hidden" alt="Requested Playlist" />
