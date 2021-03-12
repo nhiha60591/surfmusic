@@ -16,7 +16,7 @@
       </div>
       <input type="file" name="file" ref="file" id="file" accept="image/*" style="opacity: 0; width: 1px; height: 1px; overflow: hidden;" @change.prevent="fileChange">
       <div class="my-3">
-        <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" placeholder="Playlist Name" />
+        <input type="text" class="input-bg p-4 w-full rounded rounded-b-none" style="max-height: 200px;" placeholder="Playlist Name" />
       </div>
     </div>
     <div class="mt-2 flex">
