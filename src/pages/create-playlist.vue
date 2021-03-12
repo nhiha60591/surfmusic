@@ -5,8 +5,8 @@
     </div>
     <div class="create-playlist-form pt-10">
       <h1 class="text-center text-white font-bold text-2xl">Create New Playlist</h1>
-      <div class="flex w-full justify-center mt-8 relative mx-auto" style="max-width: 200px;">
-        <img :src="image" class="p-5 bg-gray-600 block rounded-lg w-full" width="150" alt="Audio Track" />
+      <div class="flex w-full justify-center mt-8 relative mx-auto p-5 bg-gray-600 rounded-lg" style="width: 200px; height: 200px;">
+        <img :src="image" class="block w-full" alt="Audio Track" />
         <button class="rounded-full w-12 h-12 flex justify-center items-center absolute bottom-2 right-2 z-20 focus:outline-none" style="background-color: #929292; color: #000;" @click="openFile">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
             <path data-name="Path 144" d="M0,0H24V24H0Z" fill="none"/>

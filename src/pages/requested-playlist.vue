@@ -14,17 +14,31 @@
           </a>
         </div>
       </div>
-      <div class="requested-playlist-info flex flex-col w-full flex-wrap px-4 text-white">
-        <div class="rounded-lg overflow-hidden">
-          <router-link :to="`/requested-playlist-detail/1`">
-            <img src="../assets/requested-playlist.jpg" class="w-full rounded-lg overflow-hidden" alt="Requested Playlist" />
-          </router-link>
+      <div class="flex flex-wrap">
+        <div class="requested-playlist-info flex flex-col w-full md:w-1/2 flex-wrap px-4 text-white">
+          <div class="rounded-lg overflow-hidden">
+            <router-link :to="`/requested-playlist-detail/1`">
+              <img src="../assets/requested-playlist.jpg" class="w-full rounded-lg overflow-hidden" alt="Requested Playlist" />
+            </router-link>
+          </div>
+          <h2 class="my-2 font-bold"><router-link :to="`/requested-playlist-detail/1`">Requested Playlist</router-link></h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="my-2">
+            <span class="time start">2020.10.10</span> - <span class="time end">2020.12.12</span>
+          </p>
         </div>
-        <h2 class="my-2 font-bold"><router-link :to="`/requested-playlist-detail/1`">Requested Playlist</router-link></h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="my-2">
-          <span class="time start">2020.10.10</span> - <span class="time end">2020.12.12</span>
-        </p>
+        <div class="hidden requested-playlist-info md:flex flex-col w-full md:w-1/2 flex-wrap px-4 text-white">
+          <div class="rounded-lg overflow-hidden">
+            <router-link :to="`/requested-playlist-detail/1`">
+              <img src="../assets/requested-playlist.jpg" class="w-full rounded-lg overflow-hidden" alt="Requested Playlist" />
+            </router-link>
+          </div>
+          <h2 class="my-2 font-bold"><router-link :to="`/requested-playlist-detail/1`">Requested Playlist</router-link></h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="my-2">
+            <span class="time start">2020.10.10</span> - <span class="time end">2020.12.12</span>
+          </p>
+        </div>
       </div>
       <div class="playlist-items flex w-full flex-wrap px-2">
         <div class="playlist-item w-1/2 md:w-1/4 p-2" v-for="item in items" :key="`item-${item.id}`">
