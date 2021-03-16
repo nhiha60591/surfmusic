@@ -11,6 +11,10 @@
             <strong class="border rounded-full px-4 py-1 text-sm uppercase">Stuff_Producer</strong>
           </div>
         </div>
+        <router-link v-for="menu in sidebarMenus" :key="`sidebar-menu-${menu.path}`" :to="menu.path" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
+          <span class="menu-icon pl-4"><img :src="menu.icon"></span>
+          <span class="menu-text font-bold">{{ menu.label }}</span>
+        </router-link>
         <router-link to="/" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/audiotrack-white.svg"></span>
           <span class="menu-text font-bold">My Musics</span>
@@ -66,10 +70,13 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: "sidebar",
   computed: {
-    ...mapGetters('app', ['isToggleMenu'])
+    ...mapGetters('app', ['isToggleMenu', 'sidebarMenus'])
   },
   methods: {
     ...mapActions('app', ['toggleMenu']),
+    getImgUrl(url) {
+      return require(url)
+    }
   }
 }
 </script>
