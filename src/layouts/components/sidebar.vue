@@ -11,10 +11,6 @@
             <strong class="border rounded-full px-4 py-1 text-sm uppercase">Stuff_Producer</strong>
           </div>
         </div>
-        <router-link v-for="menu in sidebarMenus" :key="`sidebar-menu-${menu.path}`" :to="menu.path" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
-          <span class="menu-icon pl-4"><img :src="menu.icon"></span>
-          <span class="menu-text font-bold">{{ menu.label }}</span>
-        </router-link>
         <router-link to="/" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/audiotrack-white.svg"></span>
           <span class="menu-text font-bold">My Musics</span>
@@ -27,25 +23,21 @@
           <span class="menu-icon pl-4"><img src="../../assets/icons/requested-playlist.svg"></span>
           <span class="menu-text font-bold">Requested Playlists</span>
         </router-link>
-        <a href="#" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
-          <span class="menu-icon pl-4"><img src="../../assets/icons/favorite-white.svg"></span>
-          <span class="menu-text font-bold">Favorite</span>
-        </a>
-        <a href="#" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
-          <span class="menu-icon pl-4"><img src="../../assets/icons/album-white.svg"></span>
-          <span class="menu-text font-bold">Labels</span>
-        </a>
-        <a href="#" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
+        <a href="#" v-if="role !== 'artist' && role !== 'producer'" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/people_alt-white.svg"></span>
           <span class="menu-text font-bold">Producers</span>
         </a>
-        <a href="#" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
+        <a href="#" v-if="role === 'artist' || role === 'producer'" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/people_alt-white.svg"></span>
-          <span class="menu-text font-bold">Directors</span>
+          <span class="menu-text font-bold">Musicians</span>
         </a>
-        <a href="#" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
+        <a href="#" v-if="role === 'artist' || role === 'producer'" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
+          <span class="menu-icon pl-4"><img src="../../assets/icons/friends.svg"></span>
+          <span class="menu-text font-bold">Friends</span>
+        </a>
+        <a href="#" v-if="role !== 'artist' && role !== 'producer'" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/people_alt-white.svg"></span>
-          <span class="menu-text font-bold">Stuff</span>
+          <span class="menu-text font-bold">My Artists</span>
         </a>
         <router-link to="/account/basic" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/account_circle-white.svg" alt="Account" /></span>
@@ -68,19 +60,16 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: "sidebar",
   computed: {
-    ...mapGetters('app', ['isToggleMenu', 'sidebarMenus'])
+    ...mapGetters('app', ['isToggleMenu']),
+    ...mapGetters('user', ['role'])
   },
   methods: {
     ...mapActions('app', ['toggleMenu']),
-    getImgUrl(url) {
-      return require(url)
-    }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

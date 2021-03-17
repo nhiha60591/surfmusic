@@ -4,11 +4,15 @@ const state = {
   name: '',
   avatar: '',
   is_admin: false,
+  role: 'artist',
 };
 
 const getters = {
   isAuthenticated: (state) => {
     return typeof state.token !== "undefined" && state.token
+  },
+  role: (state) => {
+    return state.role
   },
   accessToken: (state) => {
     return state.token
@@ -21,6 +25,9 @@ const mutations = {
   },
   SET_IS_ADMIN: (state, isAdmin) => {
     state.is_admin = isAdmin;
+  },
+  SET_ROLE: (state, role) => {
+    state.role = role;
   },
   SET_TOKEN: (state, token) => {
     state.token = token;
@@ -46,6 +53,13 @@ const actions = {
   setToken({ commit }, token) {
     return new Promise(resolve => {
       commit('SET_TOKEN', token);
+      resolve();
+    });
+  },
+
+  setRole({ commit }, role) {
+    return new Promise(resolve => {
+      commit('SET_ROLE', role);
       resolve();
     });
   },

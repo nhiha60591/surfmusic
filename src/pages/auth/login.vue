@@ -41,10 +41,16 @@ export default {
     }
   },
   methods: {
-    ...mapActions('user', ['setToken']),
+    ...mapActions('user', ['setToken', 'setRole']),
     async onLogin() {
       try {
         await this.setToken('eyJhbGciOiJSUzI1NiIsImtpZCI6IjYxMDgzMDRiYWRmNDc1MWIyMWUwNDQwNTQyMDZhNDFkOGZmMWNiYTgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbXVsbGlvbi0tLWhvc3QiLCJhdWQiOiJtdWxsaW9uLS0taG9zdCIsImF1dGhfdGltZSI6MTYxMzU1MTE0NCwidXNlcl9pZCI6IkxaZ3EwMWtTQ09UWXNHZFJVVHFUcHJDS3o2ajEiLCJzdWIiOiJMWmdxMDFrU0NPVFlzR2RSVVRxVHByQ0t6NmoxIiwiaWF0IjoxNjEzNTUxMTQ0LCJleHAiOjE2MTM1NTQ3NDQsImVtYWlsIjoibmhpaGE2MDU5MUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsibmhpaGE2MDU5MUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.XJG0mMhGMOUTNacaRE9U3hs4VNbrQPCXIPAI-y12iieHI6B8fi_8NGcLCiiutNpRA9MbpHPHWXITJfxypOQjo-ix5ROQPM_VM2RaDtuyhoBWgoGsu9GmYNNtcxFQa6ujSidov1omlQL80G8_TcfIfxGrw3aba4H402AsaX7Xb3aICm9N7E3VKh40PbHmWslAANDtys9ooylDBeGdbH286w4dCM0yGC4trqhSi6rJtIUMsLtD2mTI9N9nZT_Bm6yO50Pw3wcfMobgwWsKRicizTdgqS6j7TAIdcfrMVKMf4115NDEnM4cNX9JRFdpo0mSjug540GRv8AcaMJCUtgdyw')
+        if (this.form.email === 'artist@gmail.com' || this.form.email === 'producer@gmail.com') {
+          await this.setRole('artist')
+        }
+        if (this.form.email === 'director@gmail.com') {
+          await this.setRole('director')
+        }
         await this.$router.push('/')
       } catch (e) {
         // TODO

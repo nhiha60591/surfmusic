@@ -1,6 +1,7 @@
 require('dotenv').config()
 import Vue from 'vue'
 import App from './App.vue'
+import 'vue-material-design-icons/styles.css'
 import './styles/app.css'
 import store from './store'
 import router from './routes'

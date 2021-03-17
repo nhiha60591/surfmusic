@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="people_alt-white-18dp" opacity="0.87">
+    <g id="Group_67" data-name="Group 67">
+      <rect id="Rectangle_31" data-name="Rectangle 31" width="24" height="24" fill="none"/>
+    </g>
+    <g id="Group_73" data-name="Group 73" transform="translate(-0.244 1.656)">
+      <g id="Group_72" data-name="Group 72" transform="translate(1 4.244)">
+        <g id="Group_69" data-name="Group 69" transform="translate(4.103 0)">
+          <circle id="Ellipse_17" data-name="Ellipse 17" cx="4" cy="4" r="4" transform="translate(-0.103)" fill="#fff"/>
+        </g>
+        <g id="Group_71" data-name="Group 71" transform="translate(0 9.085)">
+          <path id="Path_83" data-name="Path 83" d="M9.372,13C6.578,13,1,14.4,1,17.186v3.14H17.744v-3.14C17.744,14.4,12.166,13,9.372,13Z" transform="translate(-1 -13)" fill="#fff" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+    <path id="_Color" data-name=" ↳Color" d="M3.619,6.514l-.525-.469C1.23,4.388,0,3.294,0,1.952A1.953,1.953,0,0,1,1.99,0,2.185,2.185,0,0,1,3.619.742,2.185,2.185,0,0,1,5.247,0a1.953,1.953,0,0,1,1.99,1.952c0,1.342-1.23,2.435-3.094,4.1Z" transform="translate(15.881 4.693)" fill="#fff"/>
+  </g>
+</svg>

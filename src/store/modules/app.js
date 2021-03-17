@@ -4,19 +4,9 @@ const state = () => ({
   showFlatButton: true,
   flatButtonUrl: '/upload-my-music',
   flatButtonClass: 'bottom-4 right-4',
-  sidebarMenus: [
-    {
-      path: '/',
-      icon: '../../assets/icons/audiotrack-white.svg',
-      label: 'My Musics'
-    },
-  ],
 })
 
 const getters = {
-  sidebarMenus: (state) => {
-    return state.sidebarMenus
-  },
   isToggleMenu: (state) => {
     return state.isToggleMenu
   },
@@ -41,9 +31,6 @@ const mutations = {
   changeToggleMenu (state, stage) {
     state.isToggleMenu = stage
   },
-  setSidebarMenus(state, menus) {
-    state.sidebarMenus = menus
-  },
   setShowHeader(state, show) {
     state.showHeader = show
   },
@@ -67,9 +54,6 @@ const actions = {
   },
   setShowHeader({ commit }, show) {
     commit('setShowHeader', show)
-  },
-  setSidebarMenus({ commit }, menus) {
-    commit('setSidebarMenus', menus)
   },
   setShowFlatButton({ commit }, show) {
     commit('setShowFlatButton', show)
