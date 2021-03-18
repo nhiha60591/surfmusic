@@ -90,6 +90,11 @@ export const constantRoutes = [{
                 component: () =>
                     import ('../pages/add-music'),
             },
+            {
+                path: 'music-detail',
+                component: () =>
+                    import ('../components/MusicDetail'),
+            }
         ]
     },
     ...auth,
