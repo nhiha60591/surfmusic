@@ -93,7 +93,7 @@ export const constantRoutes = [{
             {
                 path: 'music-detail',
                 component: () =>
-                    import ('../components/MusicDetail'),
+                    import ('../pages/MusicDetail'),
             }
         ]
     },
