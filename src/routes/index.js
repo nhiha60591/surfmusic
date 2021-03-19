@@ -4,19 +4,32 @@ import auth from './modules/auth'
 import account from './modules/account'
 import Layout from '../layouts/app'
 import Home from '../pages/home'
-import store from "../store";
+import store from "../store"
+import authMiddleware from "../middleware/auth"
+// import directorMiddleware from "../middleware/director"
+// import artistMiddleware from "../middleware/artist"
 // import playlist from './modules/playlist'
 
 Vue.use(Router)
 
-export const constantRoutes = [{
+export const constantRoutes = [
+    {
         path: '',
         redirect: 'home',
     },
     {
+        path: '/403',
+        name: '403',
+        component: () => import ('../pages/404'),
+    },
+    {
         path: '/',
         component: Layout,
-        children: [{
+        meta: {
+            middleware: [authMiddleware],
+        },
+        children: [
+            {
                 path: 'home',
                 component: Home,
             },
@@ -44,11 +57,6 @@ export const constantRoutes = [{
                 path: 'create-playlist',
                 component: () =>
                     import ('../pages/create-playlist'),
-            },
-            {
-                path: 'playlist',
-                component: () =>
-                    import ('../pages/playlist'),
             },
             {
                 path: 'playlist',
@@ -114,18 +122,37 @@ const createRouter = () => new Router({
 
 const router = createRouter();
 
-const whiteList = ['/login', '/forgot-password']
+function nextFactory(context, middleware, index) {
+  const subsequentMiddleware = middleware[index]
+  if (!subsequentMiddleware) return context.next
 
-router.beforeEach(async(to, from, next) => {
-    if (!store.getters['user/isAuthenticated']) {
-        if (whiteList.indexOf(to.path) !== -1) {
-            next();
-        } else {
-            next(`/login?redirect=${to.path}`);
-        }
+  return (...parameters) => {
+    context.next(...parameters)
+    const nextMiddleware = nextFactory(context, middleware, index + 1)
+    subsequentMiddleware({ ...context, next: nextMiddleware })
+  };
+}
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.middleware) {
+    const middleware = Array.isArray(to.meta.middleware)
+      ? to.meta.middleware
+      : [to.meta.middleware]
+
+    const context = {
+      from,
+      next,
+      router,
+      to,
     }
-    next();
+    const nextMiddleware = nextFactory(context, middleware, 1)
+
+    return middleware[0]({ ...context, next: nextMiddleware })
+  }
+
+  return next()
 })
+
 router.afterEach(() => {
     if (window.innerWidth <= 600 && store.getters['app/isToggleMenu']) {
         store.dispatch('app/toggleMenu')
