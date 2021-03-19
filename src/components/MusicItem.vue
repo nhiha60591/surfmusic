@@ -20,7 +20,7 @@
         </a>
       </div>
       <div class="music-info text-white pl-4">
-        <h3 class="font-bold music-name"><button class="focus:outline-none">{{ music.title }}</button></h3>
+        <router-link to="/music-detail" class="font-bold music-name"><button class="focus:outline-none">{{ music.title }}</button></router-link>
         <p><button class="artist-name focus:outline-none">{{ music.artist }}</button></p>
       </div>
     </div>
