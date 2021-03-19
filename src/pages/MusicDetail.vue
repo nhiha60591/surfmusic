@@ -6,9 +6,11 @@
       </div>
       <p class="mt-4 text-center menu-text font-bold text-white text-lg">Music Name</p>
       <div class="flex justify-items-center">
-        <div class="flex m-auto mt-3">
-          <p class="artist-name text-lg">3.6</p>
-          <img class="ml-2" src="../assets/star.png" alt="">
+        <div class="flex m-auto mt-3 items-center">
+          <p class="artist-name text-lg mr-2">{{ rate }}</p>
+          <div class="rate-star">
+            <div class="active-star" :style="`width: ${rateWidth}%;`"></div>
+          </div>
         </div>
       </div>
       <div class="flex justify-items-center mt-4">
@@ -41,11 +43,12 @@
         </div>
         <p class="blu-text font-bold mt-28 ip:mt-8">MORE</p>
       </div>
-      <div class="flex justify-between border-b border-gray-700 py-6">
-        <p class="text-white font-bold">12 likes: Matt, Taro, AAA, BBBBB ......</p>
+      <div class="flex justify-between border-b border-gray-700 py-6" v-if="likes">
+        <p class="text-white font-bold">{{ likes.length }} likes: <span v-for="(like, index) in likes" :key="`like-${index}`">{{ like.name + ((likes.length - 1) > index ? ', ' : '') }} </span></p>
         <p class="blu-text font-bold">MORE</p>
       </div>
-      <div v-for="detail in detail"
+      <div
+        v-for="detail in detail"
         :key="detail.title"
         class="border-b border-gray-700 py-6">
         <p class="artist-name text-sm"> {{ detail.title }} </p>
@@ -108,14 +111,43 @@ export default {
           title: 'Status',
           text: 'Selling',
         },
-      ]
+      ],
+      rate: 3.5,
+      likes: [
+        {
+          name: "Matt",
+        },
+        {
+          name: "Taro",
+        },
+        {
+          name: "AAA",
+        },
+        {
+          name: "BBBBBB",
+        },
+      ],
     }
+  },
+  computed: {
+    rateWidth() {
+      return (100 / 5) * this.rate
+    },
   }
 }
 </script>
 
 <style>
-.play-music-detail {
-  border: 1px solid #4DD0E1;
-}
+  .play-music-detail {
+    border: 1px solid #4DD0E1;
+  }
+  .rate-star {
+    background-image: url('../assets/star-gray.png');
+    width: 72px;
+    height: 14px;
+  }
+  .active-star {
+    background-image: url('../assets/star-yellow.png');
+    height: 14px;
+  }
 </style>
