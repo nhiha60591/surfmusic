@@ -11,7 +11,11 @@
             <strong class="border rounded-full px-4 py-1 text-sm uppercase">Stuff_Producer</strong>
           </div>
         </div>
-        <router-link to="/" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
+        <router-link v-if="role === 'director'" to="/home" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
+          <span class="menu-icon pl-4"><img src="../../assets/icons/home.svg"></span>
+          <span class="menu-text font-bold">Home</span>
+        </router-link>
+        <router-link to="/music" class="menu-item text-white flex flex-row w-full px-3 py-4 text-base font-medium">
           <span class="menu-icon pl-4"><img src="../../assets/icons/audiotrack-white.svg"></span>
           <span class="menu-text font-bold">{{ role === 'director' ? 'Musics' : 'My Musics'}}</span>
         </router-link>

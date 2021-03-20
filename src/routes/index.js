@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import auth from './modules/auth'
 import account from './modules/account'
 import Layout from '../layouts/app'
-import Home from '../pages/home'
 import store from "../store"
 import authMiddleware from "../middleware/auth"
 // import directorMiddleware from "../middleware/director"
@@ -31,7 +30,7 @@ export const constantRoutes = [
         children: [
             {
                 path: 'home',
-                component: Home,
+                component: import ('../pages/home'),
             },
             {
                 path: '404',

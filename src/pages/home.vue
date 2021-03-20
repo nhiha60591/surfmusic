@@ -2,7 +2,7 @@
   <div class="home relative">
     <div v-if="!showFilter">
       <div class="flex flex-row justify-between p-4">
-        <h1 class="text-2xl text-white font-bold">My Musics</h1>
+        <h1 class="text-2xl text-white font-bold">Home</h1>
         <div class="actions flex">
           <a href="#" @click.prevent="showFilter = !showFilter" class="md:mr-14">
             <svg id="tune" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

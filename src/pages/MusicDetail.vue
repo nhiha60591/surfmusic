@@ -19,29 +19,29 @@
           <p class="blu-text text-lg ml-3 font-medium">PLAY</p>
         </a>
       </div>
-      <div class="flex justify-between mt-8">
-        <div>
-          <img src="../assets/like (2).png" alt="">
+      <div class="flex justify-between justify-items-center items-center max-w-xs mt-8 mx-auto">
+        <div class="w-1/3 text-center">
+          <img src="../assets/like (2).png" alt="" class="mx-auto">
           <p class="artist-name">LIKE</p>
         </div>
-        <div>
-          <img src="../assets/keep.png" alt="">
+        <div class="w-1/3 text-center">
+          <img src="../assets/keep.png" alt="" class="mx-auto">
           <p class="artist-name">KEEP</p>
         </div>
-        <div>
-          <img src="../assets/offer.png" alt="">
+        <div class="w-1/3 text-center">
+          <img src="../assets/offer.png" alt="" class="mx-auto">
           <p class="artist-name">OFFER</p>
         </div>
       </div>
-      <p class="text-white font-bold mt-10">8 Playlists</p>
-      <div class="justify-between flex">
-        <div class="mt-2 flex flex-wrap">
-          <div v-for="n in 8" :key="`list-playlist-${n}`" class="mr-6">
-            <img src="../assets/img-music-detail.png" alt="">
-            <p class="text-white text-sm">Playli...</p>
+      <p class="text-white font-bold mt-10">5 Playlists</p>
+      <div class="justify-between flex items-center">
+        <div class="w-5/6 mt-2 flex flex-wrap -mx-2">
+          <div v-for="n in 5" :key="`list-playlist-${n}`" class="w-1/5 px-2">
+            <img src="../assets/img-music-detail.png" class="w-full" alt="">
+            <p class="text-white text-sm playlist-title">Playlist</p>
           </div>
         </div>
-        <p class="blu-text font-bold mt-28 ip:mt-8">MORE</p>
+        <p class="w-1/6 blu-text font-bold text-right">MORE</p>
       </div>
       <div class="flex justify-between border-b border-gray-700 py-6" v-if="likes">
         <p class="text-white font-bold">{{ likes.length }} likes: <span v-for="(like, index) in likes" :key="`like-${index}`">{{ like.name + ((likes.length - 1) > index ? ', ' : '') }} </span></p>
@@ -149,5 +149,10 @@ export default {
   .active-star {
     background-image: url('../assets/star-yellow.png');
     height: 14px;
+  }
+  .playlist-title {
+    text-overflow: ellipsis;
+    font-size: 12px;
+    margin-top: 5px;
   }
 </style>
