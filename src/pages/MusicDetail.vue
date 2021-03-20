@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-6 mb-6">
+  <div class="mt-6 mb-6">
     <div class="ml-3 mr-3 ip:ml-16 ip:mr-16 xl:w-6/12 xl:m-auto">
       <div class="h-48 w-48 bg-gray-600 m-auto flex justify-items-center rounded-full items-center">
         <img class="m-auto" src="../assets/img-music.png" alt="">
