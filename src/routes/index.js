@@ -13,49 +13,49 @@ Vue.use(Router)
 
 export const constantRoutes = [
     {
-        path: '',
-        redirect: 'home',
+      path: '',
+      redirect: 'home',
     },
     {
-        path: '/403',
-        name: '403',
-        component: () => import ('../pages/404'),
+      path: '/403',
+      name: '403',
+      component: () => import ('../pages/404'),
     },
     {
         path: '/',
         component: Layout,
         meta: {
-            middleware: [authMiddleware],
+          middleware: [authMiddleware],
         },
         children: [
             {
-                path: 'home',
-                component: import ('../pages/home'),
+              path: 'home',
+              component: import ('../pages/home'),
             },
             {
-                path: '404',
-                component: () =>
-                    import ('../pages/404'),
+              path: '404',
+              component: () =>
+                import ('../pages/404'),
             },
             {
-                path: 'music',
-                component: () =>
-                    import ('../pages/music'),
+              path: 'music',
+              component: () =>
+                import ('../pages/music'),
             },
             {
-                path: 'upload-my-music',
-                component: () =>
-                    import ('../pages/upload-my-music'),
+              path: 'upload-my-music',
+              component: () =>
+                import ('../pages/upload-my-music'),
             },
             {
-                path: 'confirm-form',
-                component: () =>
-                    import ('../pages/confirm-form'),
+              path: 'confirm-form',
+              component: () =>
+                import ('../pages/confirm-form'),
             },
             {
-                path: 'create-playlist',
-                component: () =>
-                    import ('../pages/create-playlist'),
+              path: 'create-playlist',
+              component: () =>
+                import ('../pages/create-playlist'),
             },
             {
                 path: 'playlist',
@@ -133,6 +133,21 @@ function nextFactory(context, middleware, index) {
 }
 
 router.beforeEach((to, from, next) => {
+  if (to.matched[0].meta.middleware) {
+    const middleware = Array.isArray(to.matched[0].meta.middleware)
+      ? to.matched[0].meta.middleware
+      : [to.matched[0].meta.middleware]
+
+    const context = {
+      from,
+      next,
+      router,
+      to,
+    }
+    const nextMiddleware = nextFactory(context, middleware, 1)
+
+    return middleware[0]({ ...context, next: nextMiddleware })
+  }
   if (to.meta.middleware) {
     const middleware = Array.isArray(to.meta.middleware)
       ? to.meta.middleware
