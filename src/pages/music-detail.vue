@@ -36,8 +36,8 @@
       <p class="text-white font-bold mt-10">5 Playlists</p>
       <div class="justify-between flex items-center">
         <div class="w-5/6 mt-2 flex flex-wrap -mx-2">
-          <div v-for="n in 5" :key="`list-playlist-${n}`" class="w-1/5 px-2">
-            <img src="../assets/img-music-detail.png" class="w-full" alt="">
+          <div v-for="n in 5" :key="`list-playlist-${n}`" class="w-1/5 px-2 flex flex-col justify-between">
+            <img :src="`https://fakeimg.pl/350x${Math.floor(Math.random() * (350 - 200) + 200)}/?text=Playlist Item ${n}`" class="w-full h-full rounded-lg" alt="">
             <p class="text-white text-sm playlist-title">Playlist</p>
           </div>
         </div>
@@ -48,7 +48,7 @@
         <p class="blu-text font-bold">MORE</p>
       </div>
       <div
-        v-for="detail in detail"
+        v-for="detail in details"
         :key="detail.title"
         class="border-b border-gray-700 py-6">
         <p class="artist-name text-sm"> {{ detail.title }} </p>
@@ -62,7 +62,7 @@
 export default {
   data() {
     return {
-      detail: [
+      details: [
         {
           title: 'Tempo',
           text: 'High',

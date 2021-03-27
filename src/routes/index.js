@@ -5,17 +5,13 @@ import account from './modules/account'
 import Layout from '../layouts/app'
 import store from "../store"
 import authMiddleware from "../middleware/auth"
-// import directorMiddleware from "../middleware/director"
+import directorMiddleware from "../middleware/director"
 // import artistMiddleware from "../middleware/artist"
 // import playlist from './modules/playlist'
 
 Vue.use(Router)
 
 export const constantRoutes = [
-    {
-      path: '',
-      redirect: 'home',
-    },
     {
       path: '/403',
       name: '403',
@@ -31,6 +27,9 @@ export const constantRoutes = [
             {
               path: 'home',
               component: import ('../pages/home'),
+              meta: {
+                middleware: [directorMiddleware],
+              },
             },
             {
               path: '404',
@@ -100,7 +99,7 @@ export const constantRoutes = [
             {
                 path: 'music-detail',
                 component: () =>
-                    import ('../pages/MusicDetail'),
+                    import ('../pages/music-detail'),
             }
         ]
     },
@@ -133,10 +132,10 @@ function nextFactory(context, middleware, index) {
 }
 
 router.beforeEach((to, from, next) => {
-  if (to.matched[0].meta.middleware) {
-    const middleware = Array.isArray(to.matched[0].meta.middleware)
-      ? to.matched[0].meta.middleware
-      : [to.matched[0].meta.middleware]
+  if (to.meta.middleware) {
+    const middleware = Array.isArray(to.meta.middleware)
+      ? to.meta.middleware
+      : [to.meta.middleware]
 
     const context = {
       from,
@@ -148,10 +147,11 @@ router.beforeEach((to, from, next) => {
 
     return middleware[0]({ ...context, next: nextMiddleware })
   }
-  if (to.meta.middleware) {
-    const middleware = Array.isArray(to.meta.middleware)
-      ? to.meta.middleware
-      : [to.meta.middleware]
+
+  if (to.matched[0].meta.middleware) {
+    const middleware = Array.isArray(to.matched[0].meta.middleware)
+      ? to.matched[0].meta.middleware
+      : [to.matched[0].meta.middleware]
 
     const context = {
       from,

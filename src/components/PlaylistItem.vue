@@ -1,9 +1,11 @@
 <template>
-  <div class="playlist-item w-1/2 md:w-1/4 p-2" v-click-outside="clickOutSide">
-    <div class="img-item rounded-md relative overflow-hidden">
-      <router-link :to="`/playlist/${item.id}`">
-        <img src="../assets/pexels-photo-3769099.png" class="w-full block" alt="Playlist Name">
-      </router-link>
+  <div class="playlist-item flex flex-col justify-between w-1/2 md:w-1/5 p-2" v-click-outside="clickOutSide">
+    <div class="h-full img-item rounded-md relative overflow-hidden">
+      <div class="playlist-img h-full">
+        <router-link :to="`/playlist/${item.id}`">
+          <img :src="item.image" class="w-full block" alt="Playlist Name">
+        </router-link>
+      </div>
       <div class="actions absolute right-2 top-2 rounded-full bg-black w-10 h-10 flex justify-center items-center">
         <button class="focus:outline-none" @click.prevent="onShare"><img src="../assets/share-btn.png" alt="Share"></button>
         <div class="absolute top-12 right-0 action-box rounded" :class="{'hidden': !shareOpen}">
@@ -28,9 +30,11 @@ export default {
     item: {
       type: Object,
       default() {
+        let height = Math.floor(Math.random() * (350 - 200) + 200);
         return {
           id: 1,
-          title: "Playlist Name"
+          title: "Playlist Name",
+          image: `https://fakeimg.pl/350x${height}/?text=Surf Music`,
         }
       }
     }
@@ -58,6 +62,18 @@ export default {
 
 <style lang="scss">
   .playlist-item {
+    .playlist-img {
+      overflow: hidden;
+      display: flex;
+      a {
+        width: 100%;
+        background: red;
+        display: flex;
+        img {
+          align-items: stretch;
+        }
+      }
+    }
     h3 {
       font-size: 16px;
     }

@@ -23,7 +23,7 @@
         </ul>
         </div>
         <div class="playlist-items flex w-full flex-wrap px-2">
-            <PlaylistItem v-for="n in 8" :key="`playlist-item-${n}`"></PlaylistItem>
+            <PlaylistItem v-for="n in 10" :key="`playlist-item-${n}`"></PlaylistItem>
         </div>
       </div>
     <FilterForm :show="showFilter" @close="closeFilter"></FilterForm>
