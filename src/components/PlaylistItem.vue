@@ -1,12 +1,12 @@
 <template>
   <div class="playlist-item flex flex-col justify-between w-1/2 md:w-1/5 p-2" v-click-outside="clickOutSide">
     <div class="h-full img-item rounded-md relative overflow-hidden">
-      <div class="playlist-img h-full">
-        <router-link :to="`/playlist/${item.id}`">
+      <div class="playlist-img relative">
+        <router-link :to="`/playlist/${item.id}`" class="absolute block w-full h-full top-0 left-0 z-40">
           <img :src="item.image" class="w-full block" alt="Playlist Name">
         </router-link>
       </div>
-      <div class="actions absolute right-2 top-2 rounded-full bg-black w-10 h-10 flex justify-center items-center">
+      <div class="actions absolute z-50 right-2 top-2 rounded-full bg-black w-10 h-10 flex justify-center items-center">
         <button class="focus:outline-none" @click.prevent="onShare"><img src="../assets/share-btn.png" alt="Share"></button>
         <div class="absolute top-12 right-0 action-box rounded" :class="{'hidden': !shareOpen}">
           <ul class="block w-full text-white">
@@ -65,6 +65,8 @@ export default {
     .playlist-img {
       overflow: hidden;
       display: flex;
+      width: 100%;
+      padding-top: 100%; /* 1:1 Aspect Ratio */
       a {
         width: 100%;
         background: red;
