@@ -28,10 +28,12 @@
           </a>
         </div>
       </div>
-      <div class="text-white relative z-10 pt-4 md:flex md:w-full md:items-center">
-        <div class="img-item rounded-lg relative overflow-hidden">
-          <img src="../assets/pexels-photo-3769099.png" class="w-full block" alt="Playlist Name">
-          <div class="actions absolute right-2 top-2 rounded-full bg-black w-10 h-10 flex justify-center items-center" v-click-outside="clickOutSide">
+      <div class="text-white relative z-10 pt-4 w-full md:flex md:w-full md:items-center">
+        <div class="w-full md:w-1/4 img-item rounded-lg relative overflow-hidden">
+          <div class="absolute z-20 top-0 left-0 w-full h-full flex">
+            <img :src="imageURL" class="w-full h-full" alt="Playlist Name">
+          </div>
+          <div class="actions absolute right-2 top-2 z-50 rounded-full bg-black w-10 h-10 flex justify-center items-center" v-click-outside="clickOutSide">
             <button class="focus:outline-none" @click.prevent="onShare"><img src="../assets/share-btn.png" alt="Share"></button>
             <div class="absolute top-12 right-0 action-box rounded" :class="{'hidden': !shareOpen}">
               <ul class="block w-full text-white rounded overflow-hidden py-1">
@@ -118,6 +120,12 @@ export default {
       ]
     }
   },
+  computed: {
+    imageURL() {
+      let height = Math.floor(Math.random() * (350 - 200) + 200);
+      return `https://fakeimg.pl/350x${height}/?text=Surf Music`
+    }
+  },
   methods: {
     ...mapActions('app', ['setFlatButtonUrl']),
     onShare() {
@@ -144,8 +152,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   .action-box {
     width: 170px;
+  }
+  .img-item {
+    display: flex;
+    padding-top: 100%;
+    img {
+      align-items: stretch;
+    }
+  }
+  @media screen and (min-width: 900px) {
+    .img-item {
+      padding-top: 280px;
+    }
   }
 </style>

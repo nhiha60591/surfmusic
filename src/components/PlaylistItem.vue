@@ -66,7 +66,7 @@ export default {
       overflow: hidden;
       display: flex;
       width: 100%;
-      padding-top: 100%; /* 1:1 Aspect Ratio */
+      padding-top: 100%;
       a {
         width: 100%;
         background: red;
