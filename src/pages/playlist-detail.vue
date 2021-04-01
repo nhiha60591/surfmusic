@@ -28,10 +28,10 @@
           </a>
         </div>
       </div>
-      <div class="text-white relative z-10 pt-4 w-full md:flex md:w-full md:items-center">
-        <div class="w-full md:w-1/4 img-item rounded-lg relative overflow-hidden">
+      <div class="text-white relative z-10 p-8 w-full md:flex md:items-center">
+        <div class="w-full img-item rounded-lg relative overflow-hidden">
           <div class="absolute z-20 top-0 left-0 w-full h-full flex">
-            <img :src="imageURL" class="w-full h-full" alt="Playlist Name">
+            <img :src="imageURL" class="w-full h-full mx-auto" alt="Playlist Name">
           </div>
           <div class="actions absolute right-2 top-2 z-50 rounded-full bg-black w-10 h-10 flex justify-center items-center" v-click-outside="clickOutSide">
             <button class="focus:outline-none" @click.prevent="onShare"><img src="../assets/share-btn.png" alt="Share"></button>
@@ -158,14 +158,27 @@ export default {
   }
   .img-item {
     display: flex;
-    padding-top: 100%;
+    width: 250px;
+    height: 250px;
     img {
       align-items: stretch;
     }
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (max-width: 900px) {
+    .info {
+      min-height: 50vh;
+      > img.absolute {
+        width: auto;
+        max-width: none;
+        min-width: 100%;
+        min-height: 100%;
+        max-height: none;
+      }
+    }
     .img-item {
-      padding-top: 280px;
+      width: 200px;
+      height: 200px;
+      margin: auto;
     }
   }
 </style>
