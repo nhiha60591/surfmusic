@@ -153,32 +153,34 @@ export default {
 </script>
 
 <style lang="scss">
-  .action-box {
-    width: 170px;
-  }
-  .img-item {
-    display: flex;
-    width: 250px;
-    height: 250px;
-    img {
-      align-items: stretch;
-    }
-  }
-  @media screen and (max-width: 900px) {
-    .info {
-      min-height: 50vh;
-      > img.absolute {
-        width: auto;
-        max-width: none;
-        min-width: 100%;
-        min-height: 100%;
-        max-height: none;
-      }
+  .playlist-detail {
+    .action-box {
+      width: 170px;
     }
     .img-item {
-      width: 200px;
-      height: 200px;
-      margin: auto;
+      display: flex;
+      width: 250px;
+      height: 250px;
+      img {
+        align-items: stretch;
+      }
+    }
+    @media screen and (max-width: 900px) {
+      .info {
+        min-height: 50vh;
+        > img.absolute {
+          width: auto;
+          max-width: none;
+          min-width: 100%;
+          min-height: 100%;
+          max-height: none;
+        }
+      }
+      .img-item {
+        width: 200px;
+        height: 200px;
+        margin: auto;
+      }
     }
   }
 </style>

@@ -69,7 +69,7 @@ export default {
       padding-top: 100%;
       a {
         width: 100%;
-        background: red;
+        background: #cdcdcd;
         display: flex;
         img {
           align-items: stretch;
