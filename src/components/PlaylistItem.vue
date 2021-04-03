@@ -2,8 +2,8 @@
   <div class="playlist-item flex flex-col justify-between w-1/2 md:w-1/5 p-2" v-click-outside="clickOutSide">
     <div class="h-full img-item rounded-md relative overflow-hidden">
       <div class="playlist-img relative">
-        <router-link :to="`/playlist/${item.id}`" class="absolute block w-full h-full top-0 left-0 z-40">
-          <img :src="item.image" class="w-full block" alt="Playlist Name">
+        <router-link :to="type === 'playlist' ? `/playlist/${item.id}` : `/playlist-group-detail/${item.id}`" class="absolute block w-full h-full top-0 left-0 z-40">
+          <img :src="item.image" class="w-full block" :alt="item.title">
         </router-link>
       </div>
       <div class="actions absolute z-50 right-2 top-2 rounded-full bg-black w-10 h-10 flex justify-center items-center">
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="info text-white mt-2">
-      <h3 class="font-bold"><router-link :to="`/playlist/${item.id}`">Playlist Name</router-link></h3>
+      <h3 class="font-bold"><router-link :to="`/playlist/${item.id}`">{{ item.title }}</router-link></h3>
     </div>
   </div>
 </template>
@@ -27,6 +27,12 @@ import ClickOutside from "vue-click-outside";
 
 export default {
   props: {
+    type: {
+      type: String,
+      default() {
+        return 'playlist'
+      }
+    },
     item: {
       type: Object,
       default() {

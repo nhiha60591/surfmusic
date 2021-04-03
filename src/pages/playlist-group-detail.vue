@@ -1,8 +1,8 @@
 <template>
   <div class="home relative">
     <div v-if="!showFilter">
-      <div class="flex flex-row justify-between p-4">
-        <h1 class="text-2xl text-white font-bold">Home</h1>
+      <div class="flex flex-row justify-between px-4 py-4">
+        <h1 class="text-2xl text-white font-bold">{{ playlistGroup.title }}</h1>
         <div class="actions flex">
           <a href="#" @click.prevent="showFilter = !showFilter" class="md:mr-14">
             <svg id="tune" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -14,24 +14,9 @@
           </a>
         </div>
       </div>
-
-      <div class="flex justify-between items-center p-4">
-        <h2 class="font-bold text-white">Playlist Group</h2>
-        <a href="#" class="text-blue-primary uppercase font-bold">More</a>
-      </div>
-
-      <VueSlickCarousel :arrows="false" :dots="false" :slides-to-show="2" class="playlist-items flex w-full flex-wrap px-2">
-        <PlaylistItem type="group" :item="item" v-for="item in playlistGroups" :key="`playlist-item-${item.id}`"></PlaylistItem>
-      </VueSlickCarousel>
-
-      <div class="flex justify-between items-center p-4">
-        <h2 class="font-bold text-white">Playlist</h2>
-        <a href="#" class="text-blue-primary uppercase font-bold">More</a>
-      </div>
-
-      <VueSlickCarousel :arrows="false" :dots="false" :slides-to-show="2" class="playlist-items flex w-full flex-wrap px-2">
-        <PlaylistItem v-for="n in 10" :key="`playlist-item-${n}`"></PlaylistItem>
-      </VueSlickCarousel>
+      <draggable class="playlist-items flex w-full flex-wrap px-2" v-model="items" group="people" @start="drag=true" @end="drag=false">
+        <PlaylistItem v-for="item in items" :item="item" :key="`playlist-item-${item.id}`"></PlaylistItem>
+      </draggable>
     </div>
     <FilterForm :show="showFilter" @close="closeFilter"></FilterForm>
   </div>
@@ -40,64 +25,83 @@
 <script>
 import FilterForm from '../components/FilterForm'
 import PlaylistItem from '../components/PlaylistItem'
-import VueSlickCarousel from 'vue-slick-carousel'
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import draggable from 'vuedraggable'
+
+import {mapActions} from 'vuex'
 
 export default {
-  components: { FilterForm, PlaylistItem, VueSlickCarousel },
+  components: { FilterForm, PlaylistItem, draggable },
   data() {
     return {
       showFilter: false,
-      playlistGroups: [
+      playlistGroup: {
+        id: 1,
+        title: 'Playlist Group 1'
+      },
+      items: [
         {
           id: 1,
+          order: 1,
           title: "Playlist Group 1",
           image: `https://fakeimg.pl/350x${Math.floor(Math.random() * (350 - 200) + 200)}/?text=Surf Music`,
         },
         {
           id: 2,
+          order: 2,
           title: "Playlist Group 2",
           image: `https://fakeimg.pl/350x${Math.floor(Math.random() * (350 - 200) + 200)}/?text=Surf Music`,
         },
         {
           id: 3,
+          order: 3,
           title: "Playlist Group 3",
           image: `https://fakeimg.pl/350x${Math.floor(Math.random() * (350 - 200) + 200)}/?text=Surf Music`,
         },
         {
           id: 4,
+          order: 4,
           title: "Playlist Group 4",
           image: `https://fakeimg.pl/350x${Math.floor(Math.random() * (350 - 200) + 200)}/?text=Surf Music`,
         },
         {
           id: 5,
+          order: 5,
           title: "Playlist Group 5",
           image: `https://fakeimg.pl/350x${Math.floor(Math.random() * (350 - 200) + 200)}/?text=Surf Music`,
         },
         {
           id: 6,
+          order: 6,
           title: "Playlist Group 6",
           image: `https://fakeimg.pl/350x${Math.floor(Math.random() * (350 - 200) + 200)}/?text=Surf Music`,
         },
         {
           id: 7,
+          order: 7,
           title: "Playlist Group 7",
           image: `https://fakeimg.pl/350x${Math.floor(Math.random() * (350 - 200) + 200)}/?text=Surf Music`,
         }
-      ],
+      ]
     }
   },
   methods: {
+    ...mapActions('app', ['setFlatButtonUrl']),
     closeFilter() {
       this.showFilter = false
     }
   },
+  created() {
+    this.setFlatButtonUrl('/create-playlist')
+  },
+  mounted() {
+    this.setFlatButtonUrl('/create-playlist')
+  },
+  beforeDestroy() {
+    this.setFlatButtonUrl('/upload-my-music')
+  }
 }
 </script>
 
 <style scoped>
-svg:hover path.color, svg:focus path.color {
-  fill: #80DEEA;
-}
+
 </style>

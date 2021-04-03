@@ -7,115 +7,118 @@ import store from "../store"
 import authMiddleware from "../middleware/auth"
 import directorMiddleware from "../middleware/director"
 // import artistMiddleware from "../middleware/artist"
-// import playlist from './modules/playlist'
 
 Vue.use(Router)
 
 export const constantRoutes = [
-    {
-      path: '/403',
-      name: '403',
-      component: () => import ('../pages/404'),
+  {
+    path: '/403',
+    name: '403',
+    component: () => import ('../pages/404'),
+  },
+  {
+    path: '/',
+    component: Layout,
+    meta: {
+      middleware: [authMiddleware],
     },
-    {
+    children: [
+      {
         path: '/',
-        component: Layout,
+        component: () => store.getters['user/role'] === 'director' ? import ('../pages/home') : import ('../pages/playlist'),
         meta: {
-          middleware: [authMiddleware],
+          middleware: [directorMiddleware],
         },
-        children: [
-            {
-              path: 'home',
-              component: import ('../pages/home'),
-              meta: {
-                middleware: [directorMiddleware],
-              },
-            },
-            {
-              path: '404',
-              component: () =>
-                import ('../pages/404'),
-            },
-            {
-              path: 'music',
-              component: () =>
-                import ('../pages/music'),
-            },
-            {
-              path: 'upload-my-music',
-              component: () =>
-                import ('../pages/upload-my-music'),
-            },
-            {
-              path: 'confirm-form',
-              component: () =>
-                import ('../pages/confirm-form'),
-            },
-            {
-              path: 'create-playlist',
-              component: () =>
-                import ('../pages/create-playlist'),
-            },
-            {
-                path: 'playlist',
-                component: () =>
-                    import ('../pages/playlist'),
-            },
-            {
-                path: 'playlist/mine',
-                component: () =>
-                    import ('../pages/mine'),
-            },
-            {
-                path: 'playlist/shared',
-                component: () =>
-                    import ('../pages/Shared'),
-            },
-            {
-                path: 'playlist/artist',
-                component: () =>
-                    import ('../pages/Artist'),
-            },
-            {
-                path: 'playlist/:id',
-                component: () =>
-                    import ('../pages/playlist-detail'),
-            },
-            {
-                path: 'requested-playlist',
-                component: () =>
-                    import ('../pages/requested-playlist'),
-            },
-            {
-                path: 'requested-playlist-detail/:id',
-                component: () =>
-                    import ('../pages/requested-playlist-detail'),
-            },
-            {
-                path: 'add-music',
-                component: () =>
-                    import ('../pages/add-music'),
-            },
-            {
-                path: 'music-detail',
-                component: () =>
-                    import ('../pages/music-detail'),
-            }
-        ]
-    },
-    ...auth,
-    ...account,
-    // ...playlist,
-    {
-        path: '*',
-        redirect: '/404',
-    }
+      },
+      {
+        path: '404',
+        component: () =>
+          import ('../pages/404'),
+      },
+      {
+        path: 'music',
+        component: () =>
+          import ('../pages/music'),
+      },
+      {
+        path: 'upload-my-music',
+        component: () =>
+          import ('../pages/upload-my-music'),
+      },
+      {
+        path: 'confirm-form',
+        component: () =>
+          import ('../pages/confirm-form'),
+      },
+      {
+        path: 'create-playlist',
+        component: () =>
+          import ('../pages/create-playlist'),
+      },
+      {
+        path: 'playlist',
+        component: () =>
+          import ('../pages/playlist'),
+      },
+      {
+        path: 'playlist/mine',
+        component: () =>
+          import ('../pages/mine'),
+      },
+      {
+        path: 'playlist/shared',
+        component: () =>
+          import ('../pages/Shared'),
+      },
+      {
+        path: 'playlist/artist',
+        component: () =>
+          import ('../pages/Artist'),
+      },
+      {
+        path: 'playlist/:id',
+        component: () =>
+          import ('../pages/playlist-detail'),
+      },
+      {
+        path: 'requested-playlist',
+        component: () =>
+          import ('../pages/requested-playlist'),
+      },
+      {
+        path: 'requested-playlist-detail/:id',
+        component: () =>
+          import ('../pages/requested-playlist-detail'),
+      },
+      {
+        path: 'playlist-group-detail/:id',
+        component: () =>
+          import ('../pages/playlist-group-detail'),
+      },
+      {
+        path: 'add-music',
+        component: () =>
+          import ('../pages/add-music'),
+      },
+      {
+        path: 'music-detail',
+        component: () =>
+          import ('../pages/music-detail'),
+      }
+    ]
+  },
+  ...auth,
+  ...account,
+  {
+    path: '*',
+    redirect: '/404',
+  }
 ];
 
 const createRouter = () => new Router({
-    scrollBehavior: () => ({ y: 0 }),
-    mode: 'history',
-    routes: constantRoutes,
+  scrollBehavior: () => ({y: 0}),
+  mode: 'history',
+  routes: constantRoutes,
 });
 
 const router = createRouter();
@@ -127,7 +130,7 @@ function nextFactory(context, middleware, index) {
   return (...parameters) => {
     context.next(...parameters)
     const nextMiddleware = nextFactory(context, middleware, index + 1)
-    subsequentMiddleware({ ...context, next: nextMiddleware })
+    subsequentMiddleware({...context, next: nextMiddleware})
   };
 }
 
@@ -145,7 +148,7 @@ router.beforeEach((to, from, next) => {
     }
     const nextMiddleware = nextFactory(context, middleware, 1)
 
-    return middleware[0]({ ...context, next: nextMiddleware })
+    return middleware[0]({...context, next: nextMiddleware})
   }
 
   if (to.matched[0].meta.middleware) {
@@ -161,16 +164,16 @@ router.beforeEach((to, from, next) => {
     }
     const nextMiddleware = nextFactory(context, middleware, 1)
 
-    return middleware[0]({ ...context, next: nextMiddleware })
+    return middleware[0]({...context, next: nextMiddleware})
   }
 
   return next()
 })
 
 router.afterEach(() => {
-    if (window.innerWidth <= 600 && store.getters['app/isToggleMenu']) {
-        store.dispatch('app/toggleMenu')
-    }
+  if (window.innerWidth <= 600 && store.getters['app/isToggleMenu']) {
+    store.dispatch('app/toggleMenu')
+  }
 })
 
 export default router;
