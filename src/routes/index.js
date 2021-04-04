@@ -24,11 +24,15 @@ export const constantRoutes = [
     },
     children: [
       {
-        path: '/',
-        component: () => store.getters['user/role'] === 'director' ? import ('../pages/home') : import ('../pages/playlist'),
+        path: 'home',
+        component: () => import ('../pages/home'),
         meta: {
           middleware: [directorMiddleware],
         },
+      },
+      {
+        path: '/',
+        component: () => store.getters['user/role'] === 'director' ? import ('../pages/home') : import ('../pages/playlist'),
       },
       {
         path: '404',

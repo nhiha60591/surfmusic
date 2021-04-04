@@ -20,7 +20,7 @@
         <a href="#" class="text-blue-primary uppercase font-bold">More</a>
       </div>
 
-      <VueSlickCarousel :arrows="false" :dots="false" :slides-to-show="2" class="playlist-items flex w-full flex-wrap px-2">
+      <VueSlickCarousel v-bind="settings" class="playlist-items flex w-full flex-wrap px-2">
         <PlaylistItem type="group" :item="item" v-for="item in playlistGroups" :key="`playlist-item-${item.id}`"></PlaylistItem>
       </VueSlickCarousel>
 
@@ -29,7 +29,7 @@
         <a href="#" class="text-blue-primary uppercase font-bold">More</a>
       </div>
 
-      <VueSlickCarousel :arrows="false" :dots="false" :slides-to-show="2" class="playlist-items flex w-full flex-wrap px-2">
+      <VueSlickCarousel v-bind="settings" class="playlist-items flex w-full flex-wrap px-2">
         <PlaylistItem v-for="n in 10" :key="`playlist-item-${n}`"></PlaylistItem>
       </VueSlickCarousel>
     </div>
@@ -86,6 +86,38 @@ export default {
           image: `https://fakeimg.pl/350x${Math.floor(Math.random() * (350 - 200) + 200)}/?text=Surf Music`,
         }
       ],
+    }
+  },
+  computed: {
+    settings() {
+      return {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        arrows: false,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: false,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2,
+            },
+          },
+        ],
+      }
     }
   },
   methods: {
